@@ -1,0 +1,30 @@
+3
+Zakhidna str,20
+9:18
+0
+Warehouse
+9:33
+9
+Cooperativna str/Zlahody str
+9:46
+0
+Warehouse
+10:04
+12
+Dzherelna str,18
+10:19
+0
+Warehouse
+10:41
+34
+B. Khmelnytskoho str /Vodoprovidnyy lane
+11:14
+0
+Warehouse
+11:50
+35
+Myudovska str/ Myudovska lane
+12:24
+0
+Warehouse
+12:57

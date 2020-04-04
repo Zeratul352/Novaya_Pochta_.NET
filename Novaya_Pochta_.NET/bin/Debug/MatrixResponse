@@ -1,0 +1,994 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DistanceMatrixResponse>
+  <status>OK</status>
+  <origin_address>Slobozhanska St, 35, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
+  <origin_address>Slobozhanska St, 51, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
+  <origin_address>Vulytsya Shevchenka, 15, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
+  <origin_address>Provulok Sanitarnyy, 6, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
+  <origin_address>Klavdii Shulzhenko St, 45, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
+  <origin_address>
+  </origin_address>
+  <origin_address>Academician Amosov St, 45, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
+  <origin_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</origin_address>
+  <origin_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</origin_address>
+  <origin_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</origin_address>
+  <destination_address>Slobozhanska St, 35, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <destination_address>Slobozhanska St, 51, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
+  <destination_address>Vulytsya Shevchenka, 15, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <destination_address>Provulok Sanitarnyy, 6, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
+  <destination_address>Klavdii Shulzhenko St, 45, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <destination_address>
+  </destination_address>
+  <destination_address>Academician Amosov St, 45, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <destination_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</destination_address>
+  <destination_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</destination_address>
+  <destination_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</destination_address>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>22</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>223</value>
+        <text>0.2 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>332</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3028</value>
+        <text>3.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>200</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>2054</value>
+        <text>2.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>338</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3138</value>
+        <text>3.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>417</value>
+        <text>7 mins</text>
+      </duration>
+      <distance>
+        <value>3921</value>
+        <text>3.9 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>170</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>170</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>170</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>23</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>223</value>
+        <text>0.2 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>355</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3251</value>
+        <text>3.3 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>177</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1831</value>
+        <text>1.8 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>316</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2915</value>
+        <text>2.9 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>440</value>
+        <text>7 mins</text>
+      </duration>
+      <distance>
+        <value>4144</value>
+        <text>4.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>147</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>147</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>147</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>334</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3028</value>
+        <text>3.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>356</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3251</value>
+        <text>3.3 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>534</value>
+        <text>9 mins</text>
+      </duration>
+      <distance>
+        <value>5082</value>
+        <text>5.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>672</value>
+        <text>11 mins</text>
+      </duration>
+      <distance>
+        <value>6166</value>
+        <text>6.2 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>161</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1408</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>504</value>
+        <text>8 mins</text>
+      </duration>
+      <distance>
+        <value>4685</value>
+        <text>4.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>504</value>
+        <text>8 mins</text>
+      </duration>
+      <distance>
+        <value>4685</value>
+        <text>4.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>504</value>
+        <text>8 mins</text>
+      </duration>
+      <distance>
+        <value>4685</value>
+        <text>4.7 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>216</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>2054</value>
+        <text>2.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>193</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1831</value>
+        <text>1.8 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>548</value>
+        <text>9 mins</text>
+      </duration>
+      <distance>
+        <value>5082</value>
+        <text>5.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>195</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1289</value>
+        <text>1.3 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>632</value>
+        <text>11 mins</text>
+      </duration>
+      <distance>
+        <value>5975</value>
+        <text>6.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>99</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>586</value>
+        <text>0.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>99</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>586</value>
+        <text>0.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>99</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>586</value>
+        <text>0.6 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>352</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3138</value>
+        <text>3.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>329</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2915</value>
+        <text>2.9 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>684</value>
+        <text>11 mins</text>
+      </duration>
+      <distance>
+        <value>6166</value>
+        <text>6.2 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>196</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1289</value>
+        <text>1.3 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>769</value>
+        <text>13 mins</text>
+      </duration>
+      <distance>
+        <value>7059</value>
+        <text>7.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>236</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1670</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>236</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1670</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>236</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1670</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>422</value>
+        <text>7 mins</text>
+      </duration>
+      <distance>
+        <value>3921</value>
+        <text>3.9 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>445</value>
+        <text>7 mins</text>
+      </duration>
+      <distance>
+        <value>4144</value>
+        <text>4.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>183</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1408</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>622</value>
+        <text>10 mins</text>
+      </duration>
+      <distance>
+        <value>5975</value>
+        <text>6.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>761</value>
+        <text>13 mins</text>
+      </duration>
+      <distance>
+        <value>7059</value>
+        <text>7.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>592</value>
+        <text>10 mins</text>
+      </duration>
+      <distance>
+        <value>5578</value>
+        <text>5.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>592</value>
+        <text>10 mins</text>
+      </duration>
+      <distance>
+        <value>5578</value>
+        <text>5.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>592</value>
+        <text>10 mins</text>
+      </duration>
+      <distance>
+        <value>5578</value>
+        <text>5.6 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>188</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>165</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>520</value>
+        <text>9 mins</text>
+      </duration>
+      <distance>
+        <value>4685</value>
+        <text>4.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>96</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>586</value>
+        <text>0.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>234</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1670</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>605</value>
+        <text>10 mins</text>
+      </duration>
+      <distance>
+        <value>5578</value>
+        <text>5.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>188</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>165</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>520</value>
+        <text>9 mins</text>
+      </duration>
+      <distance>
+        <value>4685</value>
+        <text>4.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>96</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>586</value>
+        <text>0.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>234</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1670</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>605</value>
+        <text>10 mins</text>
+      </duration>
+      <distance>
+        <value>5578</value>
+        <text>5.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>188</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>165</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>520</value>
+        <text>9 mins</text>
+      </duration>
+      <distance>
+        <value>4685</value>
+        <text>4.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>96</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>586</value>
+        <text>0.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>234</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1670</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>NOT_FOUND</status>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>605</value>
+        <text>10 mins</text>
+      </duration>
+      <distance>
+        <value>5578</value>
+        <text>5.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+  </row>
+</DistanceMatrixResponse>

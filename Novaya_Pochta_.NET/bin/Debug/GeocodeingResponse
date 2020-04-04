@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<GeocodeResponse>
+  <status>OK</status>
+  <result>
+    <type>locality</type>
+    <type>political</type>
+    <formatted_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</formatted_address>
+    <address_component>
+      <long_name>Lyubotyn</long_name>
+      <short_name>Lyubotyn</short_name>
+      <type>locality</type>
+      <type>political</type>
+    </address_component>
+    <address_component>
+      <long_name>Lyubotyns'ka city council</long_name>
+      <short_name>Lyubotyns'ka city council</short_name>
+      <type>administrative_area_level_3</type>
+      <type>political</type>
+    </address_component>
+    <address_component>
+      <long_name>Kharkiv Oblast</long_name>
+      <short_name>Kharkiv Oblast</short_name>
+      <type>administrative_area_level_1</type>
+      <type>political</type>
+    </address_component>
+    <address_component>
+      <long_name>Ukraine</long_name>
+      <short_name>UA</short_name>
+      <type>country</type>
+      <type>political</type>
+    </address_component>
+    <address_component>
+      <long_name>62435</long_name>
+      <short_name>62435</short_name>
+      <type>postal_code</type>
+    </address_component>
+    <geometry>
+      <location>
+        <lat>49.9511113</lat>
+        <lng>35.9407539</lng>
+      </location>
+      <location_type>APPROXIMATE</location_type>
+      <viewport>
+        <southwest>
+          <lat>49.9128361</lat>
+          <lng>35.8801820</lng>
+        </southwest>
+        <northeast>
+          <lat>49.9837860</lat>
+          <lng>35.9789120</lng>
+        </northeast>
+      </viewport>
+      <bounds>
+        <southwest>
+          <lat>49.9128361</lat>
+          <lng>35.8801820</lng>
+        </southwest>
+        <northeast>
+          <lat>49.9837860</lat>
+          <lng>35.9789120</lng>
+        </northeast>
+      </bounds>
+    </geometry>
+    <partial_match>true</partial_match>
+    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
+  </result>
+</GeocodeResponse>

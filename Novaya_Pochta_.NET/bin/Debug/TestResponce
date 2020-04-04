@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DistanceMatrixResponse>
+  <status>OK</status>
+  <origin_address>Slobozhanska St, 35, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
+  <origin_address>Slobozhanska St, 51, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
+  <origin_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</origin_address>
+  <origin_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</origin_address>
+  <destination_address>Slobozhanska St, 35, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <destination_address>Slobozhanska St, 51, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
+  <destination_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</destination_address>
+  <destination_address>Lyubotyn, Kharkiv Oblast, Ukraine, 62435</destination_address>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>22</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>223</value>
+        <text>0.2 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>170</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>170</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>23</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>223</value>
+        <text>0.2 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>147</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>147</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>188</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>165</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>188</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1657</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>165</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1433</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+  </row>
+</DistanceMatrixResponse>

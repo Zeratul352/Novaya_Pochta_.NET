@@ -1,0 +1,63 @@
+16,17,18
+Depovska str/ Shkilna str
+9:12
+37
+Zaliznychnyy lane,32
+9:28
+36
+Admirala Ushakova str / Zaliznychnyy lane
+9:40
+26,27,28,29
+Pidhirnyy lane /Turhunyeva str
+9:57
+19,20,21
+Bibliotechniy lane / Depovska str
+10:16
+0
+Warehouse
+10:28
+39
+Shkilna str/ Admirala Ushakova str
+10:37
+38
+Shkilna str,31
+10:42
+34
+Shmidta str / Likarnyanyy lane
+10:54
+30
+Klavdiyi Shulzhenko str/ Druzhby str
+11:02
+22,23,24
+Depovska str / Turhunyeva str
+11:18
+13
+Robocha str,10
+11:36
+8,9
+Slobozhanska str,82
+11:49
+0
+Warehouse
+12:01
+11
+Gagarina str,77
+12:19
+15
+Zvyazku str/ Depovska str
+12:27
+31
+Druzhby str/B. Khmelnytskoho str
+12:38
+33
+Myudovska str/ Myudovska lane
+12:52
+35
+Likarnyanyy lane / Likarnyanyy str
+13:03
+40
+Shkilna str /Depovska str
+13:09
+0
+Warehouse
+13:25

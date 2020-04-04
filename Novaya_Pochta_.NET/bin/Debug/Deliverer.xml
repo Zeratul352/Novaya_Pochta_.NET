@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Deliverer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <capacity>100000</capacity>
+  <salary>0</salary>
+  <speed>0</speed>
+  <volumecarrying>0</volumecarrying>
+  <allowedroadtype>0</allowedroadtype>
+  <mytime>2020-02-12T09:00:00</mytime>
+</Deliverer>

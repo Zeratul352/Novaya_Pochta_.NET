@@ -1,0 +1,98 @@
+Warehouse
+49,947349 35,931069
+Slobozhanska str,82
+49,952808 35,936602		
+Zakhidna str/Protochna str
+49,955845 35,929029
+Zakhidna str,20
+49,954431 35,932984
+8 Bereznya str,32
+49,954018 35,927417
+Zlahody str,79
+49,954532 35,924524
+Zlahody str/Gagarina str
+49,953604 35,924177
+Gagarina str,77
+49,953560 35,923824
+Gagarina str,81
+49,953830 35,923040
+Gagarina str - Cooperativna str
+49,953233 35,918436
+Cooperativna str,21
+49,953054 35,919222
+Cooperativna str/Zlahody str
+49,952263 35,923365
+Zlahody str/Karla Marksa str
+49,950499 35,921626
+Zlahody str,47
+49,949844 35,920731
+Robocha str,10
+49,948810 35,923648
+Robocha str/Dzherelyanska str
+49,947767 35,922143
+Dzherelna str,18
+49,946718 35,923349
+Zvyazku str/Veterynarna str
+49,945164 35,920666
+Zvyazku str/ Depovska str
+49,944192 35,921029
+Depovska str / Veterynarna str
+49,944203 35,924460
+Depovska str/ Shkilna str
+49,943677 35,925657
+Shkilna str / Bibliotechniy lane
+49,943889 35,928625
+Bibliotechniy lane / Depovska str
+49,942444 35,928933
+Depovska str/Shmidta str
+49,941763 35,939722
+Depovska str / Mododska str
+49,941812 35,945816
+Depovska str / Turhunyeva str
+49,941944 35,947771
+Turhunyeva str/Vasylya Danylevskoho str
+49,944323 35,948291
+Vasylya Danylevskoho str/Pidhirnyy str
+49,943709 35,950916
+Pidhirnyy str / Pidhirnyy lane
+49,945887 35,952296
+Pidhirnyy lane /Turhunyeva str
+49,946490 35,949463
+Pidhirnyy lane /Klavdiyi Shulzhenko str
+49,946743 35,948295
+Klavdiyi Shulzhenko str/ Druzhby str
+49,947531 35,948667
+Druzhby str/B. Khmelnytskoho str
+49,948071 35,946650
+B. Khmelnytskoho str /Vodoprovidnyy lane
+49,944405 35,945635
+Myudovska str/ Myudovska lane
+49,945385 35,943968
+Myudovska str / Kasicha str
+49,945567 35,943107
+Myudovska str/ Shmidta str
+49,946361 35,940593
+Shmidta str / Oleksandra Hryboyedova str
+49,945748 35,940703
+Oleksandra Hryboyedova str/Shmidta lane
+49,945749 35,939535
+Shmidta str / Likarnyanyy lane
+49,942836 35,940002
+Likarnyanyy lane / Likarnyanyy str
+49,943787 35,937088
+Likarnyanyy str / Admirala Ushakova str
+49,943029 35,936124
+Admirala Ushakova str / Zaliznychnyy lane
+49,943438 35,932108
+Zaliznychnyy lane,32
+49,944499 35,934933
+Shkilna str,31
+49,945476 35,933528
+Shkilna str/ Admirala Ushakova str
+49,944043 35,930329
+Shkilna str/Bibliotechnyy lane
+49,943906 35,928631
+Shkilna str /Depovska str
+49,943685 35,925633
+Veterynarna str/ Slobozhanska str
+49,944217 35,924468
