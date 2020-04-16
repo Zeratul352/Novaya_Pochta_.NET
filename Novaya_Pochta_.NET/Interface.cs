@@ -22,18 +22,20 @@ namespace Novaya_Pochta_.NET
         List<PointLatLng> RouteList = new List<PointLatLng>();
         int bikecounter = 0;
         int carcounter = 0;
-        List<List<Tuple<PointLatLng,string, string>>> Car = new List<List<Tuple<PointLatLng, string, string>>>();
-        List<List<Tuple<PointLatLng, string, string>>> Bike = new List<List<Tuple<PointLatLng, string, string>>>();
-        GMapOverlay routeOverlay = new GMapOverlay("routes");
+        public List<List<LandPoint>> Car { get; set; } = new List<List<LandPoint>>();
+        public List<List<LandPoint>> Bike { get; set; } = new List<List<LandPoint>>();
+        //List<List<Tuple<PointLatLng, string, string>>> Bike = new List<List<Tuple<PointLatLng, string, string>>>();
+        GMapOverlay CarOverlay = new GMapOverlay("CarOverlay");
+        GMapOverlay BikeOverlay = new GMapOverlay("BikeOverlay");
         public Interface()
         {
             InitializeComponent();
-            LandPoint.ReadLandPointFromFile("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/DemoAdressList.txt");
+            //LandPoint.ReadLandPointFromFile("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/DemoAdressList.txt");
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
         {
-            GoogleMapProvider.Instance.ApiKey = "AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";
+            
             // Настройки для компонента GMap
             gmap.Bearing = 0;
             // Перетаскивание правой кнопки мыши
@@ -70,9 +72,9 @@ namespace Novaya_Pochta_.NET
             gmap.Position = new GMap.NET.PointLatLng(49.948022, 35.931451);
             gmap.SetPositionByKeywords("WWWJ+XC Люботин, Харьковская область");
             GMarkerGoogle gMarker = new GMarkerGoogle(gmap.Position, GMarkerGoogleType.arrow);
-            routeOverlay.Markers.Add(gMarker);
+            CarOverlay.Markers.Add(gMarker);
 
-            StreamReader bikereader = new StreamReader("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/BikeDemo.txt");
+            /*StreamReader bikereader = new StreamReader("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/BikeDemo.txt");
             while(true)
             {
                 List<Tuple<PointLatLng, string, string>> temp = new List<Tuple<PointLatLng, string, string>>();
@@ -96,7 +98,7 @@ namespace Novaya_Pochta_.NET
                 
             }
             bikereader.Close();
-            StreamReader carreader = new StreamReader("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/DemoCar.txt");
+            /*StreamReader carreader = new StreamReader("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/DemoCar.txt");
             while(true)
             {
                 List<Tuple<PointLatLng, string, string>> temp = new List<Tuple<PointLatLng, string, string>>();
@@ -120,13 +122,13 @@ namespace Novaya_Pochta_.NET
                 
             }
             carreader.Close();
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            
             List<PointLatLng> testroute = new List<PointLatLng>();
             for(int i = 0; i < Car[0].Count; i++)
             {
                 testroute.Add(Car[0][i].Item1);
             }
-            /*///////////////////////////////////////////////////trying to make an url request
+            ///////////////////////////////////////////////////trying to make an url request
             string origin = "";
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             foreach (PointLatLng point in testroute)
@@ -170,21 +172,23 @@ namespace Novaya_Pochta_.NET
             GMapRoute Denis = new GMapRoute(test.Points, "first");*/
 
             //markersOverlay.Routes.Add(Denis);
-            gmap.Overlays.Add(routeOverlay);
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            gmap.Overlays.Add(CarOverlay);
+            gmap.Overlays.Add(BikeOverlay);
             gmap.Overlays.Add(markersOverlay);
         }
 
         private void NextRoute_Click(object sender, EventArgs e)
         {
-           
+            
             if(bikecounter == Bike.Count)
             {
-                routeOverlay.Clear();
+                BikeOverlay.Clear();
                 bikecounter = 0;
                 return;
             }
-            routeOverlay.Clear();
-            var temproute = GoogleMapProvider.Instance.GetRoute(LandPoint.GetCoordinates("Warehouse"), Bike[bikecounter][0].Item1, false, true, 10);
+            BikeOverlay.Clear();
+            /*var temproute = GoogleMapProvider.Instance.GetRoute(LandPoint.GetCoordinates("Warehouse"), Bike[bikecounter][0].Item1, false, true, 10);
             GMapRoute mapRoute = new GMapRoute(temproute.Points, bikecounter.ToString())
             {
                 Stroke = new Pen(Color.Red, 3)
@@ -195,19 +199,24 @@ namespace Novaya_Pochta_.NET
             tempmarker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(tempmarker);
             tempmarker.ToolTipText = Bike[bikecounter][Bike[bikecounter].Count - 1].Item3;
             //System.Threading.Thread.Sleep(100);
+            */
             for (int i = 1; i < Bike[bikecounter].Count; i++)
             {
                 
-                var route = GoogleMapProvider.Instance.GetRoute(Bike[bikecounter][i - 1].Item1, Bike[bikecounter][i].Item1, false, true, 10);
+                var route = GoogleMapProvider.Instance.GetRoute(Bike[bikecounter][i - 1].coordinates, Bike[bikecounter][i].coordinates, false, true, 10);
                 GMapRoute gMapRoute = new GMapRoute(route.Points, i.ToString())
                 {
                     Stroke = new Pen(Color.Red, 3)
                 };
-                GMarkerGoogle temp = new GMarkerGoogle(Bike[bikecounter][i-1].Item1, GMarkerGoogleType.red);
+                GMarkerGoogle temp = new GMarkerGoogle(Bike[bikecounter][i-1].coordinates, GMarkerGoogleType.red);
                 temp.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(temp);
-                temp.ToolTipText = Bike[bikecounter][i-1].Item3;
-                routeOverlay.Routes.Add(gMapRoute);
-                routeOverlay.Markers.Add(temp);
+                temp.ToolTipText = Bike[bikecounter][i-1].adress;
+                GMarkerGoogle temp1 = new GMarkerGoogle(Bike[bikecounter][i].coordinates, GMarkerGoogleType.green);
+                temp1.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(temp1);
+                temp1.ToolTipText = Bike[bikecounter][i].adress;
+                BikeOverlay.Routes.Add(gMapRoute);
+                BikeOverlay.Markers.Add(temp);
+                BikeOverlay.Markers.Add(temp1);
                 //System.Threading.Thread.Sleep(100);
             }
             bikecounter++;
@@ -215,8 +224,8 @@ namespace Novaya_Pochta_.NET
         private void BuildRoute(GMapRoute route, GMarkerGoogle marker)
         {
             //GMapOverlay templay = new GMapOverlay();
-            routeOverlay.Routes.Add(route);
-            routeOverlay.Markers.Add(marker);
+            CarOverlay.Routes.Add(route);
+            CarOverlay.Markers.Add(marker);
             
             //gmap.Overlays.Add(templay);
             //System.Threading.Thread.Sleep(500);
@@ -225,12 +234,20 @@ namespace Novaya_Pochta_.NET
         {
             if (carcounter == Car.Count)
             {
-                routeOverlay.Clear();
+                CarOverlay.Clear();
                 carcounter = 0;
                 return;
             }
-            routeOverlay.Clear();
-            var temproute = GoogleMapProvider.Instance.GetRoute(LandPoint.GetCoordinates("Warehouse"), Car[carcounter][0].Item1, false, false, 10);
+            CarOverlay.Clear();
+            Bike.Clear();
+            for(int i = 0; i < Car[carcounter].Count - 1; i++)
+            {
+                List<LandPoint> temp = new List<LandPoint>();
+                temp.Add(Car[carcounter][i]);
+                temp.Add(Car[carcounter][i+1]);
+                Bike.Add(temp);
+            }
+            /*var temproute = GoogleMapProvider.Instance.GetRoute(LandPoint.GetCoordinates("Warehouse"), Car[carcounter][0].coordinates, false, false, 10);
             GMapRoute mapRoute = new GMapRoute(temproute.Points, carcounter.ToString())
             {
                 Stroke = new Pen(Color.Blue, 3)
@@ -238,20 +255,20 @@ namespace Novaya_Pochta_.NET
             routeOverlay.Routes.Add(mapRoute);
             GMarkerGoogle tempmarker = new GMarkerGoogle(LandPoint.GetCoordinates("Warehouse"), GMarkerGoogleType.blue);
             tempmarker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(tempmarker);
-            tempmarker.ToolTipText = Car[carcounter][Car[carcounter].Count-1].Item3;
+            tempmarker.ToolTipText = Car[carcounter][Car[carcounter].Count-1].adress;
             //routeOverlay.Markers.Add(tempmarker);
-            BuildRoute(mapRoute, tempmarker);
+            BuildRoute(mapRoute, tempmarker);*/
            
             for (int i = 1; i < Car[carcounter].Count; i++)
             {
-                var route = GoogleMapProvider.Instance.GetRoute(Car[carcounter][i - 1].Item1, Car[carcounter][i].Item1, false, true, 10);
+                var route = GoogleMapProvider.Instance.GetRoute(Car[carcounter][i - 1].coordinates, Car[carcounter][i].coordinates, false, true, 10);
                 GMapRoute gMapRoute = new GMapRoute(route.Points, i.ToString())
                 {
                     Stroke = new Pen(Color.Blue, 3)
                 };
-                GMarkerGoogle temp = new GMarkerGoogle(Car[carcounter][i - 1].Item1, GMarkerGoogleType.blue);
+                GMarkerGoogle temp = new GMarkerGoogle(Car[carcounter][i - 1].coordinates, GMarkerGoogleType.blue);
                 temp.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(temp);
-                temp.ToolTipText = Car[carcounter][i-1].Item3;
+                temp.ToolTipText = Car[carcounter][i-1].adress;
                 BuildRoute(gMapRoute, temp);
                 
                 

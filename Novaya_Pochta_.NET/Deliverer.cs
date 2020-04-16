@@ -1,4 +1,5 @@
 ﻿using GMap.NET;
+using GMap.NET.MapProviders;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -64,12 +65,12 @@ namespace Novaya_Pochta_.NET
             {
                 string adress;
                 adress = reader.ReadLine();
-                if (adress == null)
+                if (adress == null || adress == "")
                 {
                     reader.Close();
                     break;
                 }
-                string url = @"https://maps.googleapis.com/maps/api/geocode/xml?address=" + adress + "&key=AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";
+                string url = @"https://maps.googleapis.com/maps/api/geocode/xml?address=" + adress + "&key=" + GoogleMapProvider.Instance.ApiKey;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 WebResponse response = request.GetResponse();
                 Stream dataStream = response.GetResponseStream();
@@ -85,7 +86,7 @@ namespace Novaya_Pochta_.NET
                 string lat = xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lat").InnerText;
                 string lng = xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lng").InnerText;
                 string place_id = xmldoc.SelectSingleNode("GeocodeResponse/result/place_id").InnerText;
-                
+                adress = xmldoc.SelectSingleNode("GeocodeResponse/result/formatted_address").InnerText;
                 double latitude = double.Parse(lat);
                 double longitude = double.Parse(lng);
                 PointLatLng point = new PointLatLng(latitude, longitude);

@@ -1,444 +1,75 @@
 <?xml version="1.0"?>
 <ArrayOfLandPoint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LandPoint>
-    <place_id>ChIJGxUXqSGaJ0ERgATZPy7ExLU</place_id>
+    <place_id>ChIJq51sAYuZJ0ERUVAUi1vRs_s</place_id>
     <id>0</id>
-    <adress>Slobozhanska 35, Lyubotin, Ukraine</adress>
+    <adress>Slobozhanska St, 60, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
     <coordinates>
-      <Lat>49.9463701</Lat>
-      <Lng>35.9279081</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJWfrziiCaJ0ERh436wcr3nsI</place_id>
-    <id>1</id>
-    <adress>Slobozhanska 51, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9476068</Lat>
-      <Lng>35.9304089</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>2</id>
-    <adress>Depovska 117, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>3</id>
-    <adress>Likarnyana 21, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>4</id>
-    <adress>Schmidt 18, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
+      <Lat>49.9507318</Lat>
+      <Lng>35.9342808</Lng>
     </coordinates>
   </LandPoint>
   <LandPoint>
     <place_id>ChIJ9QIfsS2aJ0ER1IWfDqyoB1U</place_id>
-    <id>5</id>
-    <adress>Academician Amosov 45, Lyubotin, Ukraine</adress>
+    <id>1</id>
+    <adress>Academician Amosov St, 45, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
     <coordinates>
       <Lat>49.9352312</Lat>
       <Lng>35.9425176</Lng>
     </coordinates>
   </LandPoint>
   <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
+    <place_id>ChIJf-_BXh-aJ0ERUsim7ctNZ0g</place_id>
+    <id>2</id>
+    <adress>Dzherelianska Street, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9468111</Lat>
+      <Lng>35.9231689</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ4dajBfaZJ0ER43Lszu6OO4M</place_id>
+    <id>3</id>
+    <adress>Vulytsya Kooperatyvna, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9529417</Lat>
+      <Lng>35.9209034</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ2QME1RmaJ0ERHGVh9F2kYMk</place_id>
+    <id>4</id>
+    <adress>Vulytsya Travneva, 22, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9434949</Lat>
+      <Lng>35.9130773</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ16d_ShaaJ0ERCJ-hLem1HME</place_id>
+    <id>5</id>
+    <adress>Vulytsya Poltavsʹka, 18, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9406373</Lat>
+      <Lng>35.9118488</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJdTEqjxiaJ0ERs9Jdnat0MdA</place_id>
     <id>6</id>
-    <adress>Gaidar 47, Lyubotin, Ukraine</adress>
+    <adress>Vulytsya Depovsʹka, 39, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
     <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
+      <Lat>49.9446337</Lat>
+      <Lng>35.9187694</Lng>
     </coordinates>
   </LandPoint>
   <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
+    <place_id>ChIJ7TaiiAWaJ0ERikFYJlBmEMc</place_id>
     <id>7</id>
-    <adress>Chernyshevsky 13, Lyubotin, Ukraine</adress>
+    <adress>Vulytsya Vesnyana, 8, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
     <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>8</id>
-    <adress>Guards 24, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>9</id>
-    <adress>Komyshivata 3, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>10</id>
-    <adress>Dunaevsky 9, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>11</id>
-    <adress>Sovkhozivska 31, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>12</id>
-    <adress>Wheat 15, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>13</id>
-    <adress>Shevchenko 142, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>14</id>
-    <adress>Free 12, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>15</id>
-    <adress>Chelyuskin 13, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>16</id>
-    <adress>May 22, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>17</id>
-    <adress>Krasna 10, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>18</id>
-    <adress>Tchaikovsky 12, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>19</id>
-    <adress>Dukhovskaya 18, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>20</id>
-    <adress>Vatutina 18, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>21</id>
-    <adress>Peace 15, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>22</id>
-    <adress>Mussorsky 12, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>23</id>
-    <adress>Vesnyana 8, Lyubotin, Ukaraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>24</id>
-    <adress>Competition 5, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>25</id>
-    <adress>Marshal Rokosovsky 43, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>26</id>
-    <adress>Heroes of Afghanistan 26, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJtQlnleguOEcRLqM9ApReZxI</place_id>
-    <id>27</id>
-    <adress>Kryva 22, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>48.1719288</Lat>
-      <Lng>23.2368985</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>28</id>
-    <adress>Dunshovskaya 34, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>29</id>
-    <adress>Gorobinova 10, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>30</id>
-    <adress>Popova 33, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>31</id>
-    <adress>Popova 22, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>32</id>
-    <adress>Korolenko 41, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>33</id>
-    <adress>Korolenko 15, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>34</id>
-    <adress>Karavanska 105, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>35</id>
-    <adress>Vsevolod Nestayko 17, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJh1TvTkORw0ARQEH2iIQGAQE</place_id>
-    <id>36</id>
-    <adress>Khersonska 47, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>46.635417</Lat>
-      <Lng>32.616867</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>37</id>
-    <adress>Lva Tolstogo 67, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>38</id>
-    <adress>Marshala Rokosovskogo 43, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>39</id>
-    <adress>Transportna 87, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>40</id>
-    <adress>Gagarin 12, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>41</id>
-    <adress>Cooperative 24, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>42</id>
-    <adress>Lane of Karl Marx 6, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>43</id>
-    <adress>Consent 58a, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>44</id>
-    <adress>Eight of March 13,Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>45</id>
-    <adress>Ozerianskaya 16a, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>46</id>
-    <adress>West Street 38, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>47</id>
-    <adress>Voronin lane 30, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
-    </coordinates>
-  </LandPoint>
-  <LandPoint>
-    <place_id>ChIJkdSGQA-aJ0ER3u2GZxuZrfU</place_id>
-    <id>48</id>
-    <adress>West lane 16, Lyubotin, Ukraine</adress>
-    <coordinates>
-      <Lat>49.9511113</Lat>
-      <Lng>35.9407539</Lng>
+      <Lat>49.9488815</Lat>
+      <Lng>35.898327</Lng>
     </coordinates>
   </LandPoint>
 </ArrayOfLandPoint>

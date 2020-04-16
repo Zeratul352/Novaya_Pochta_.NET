@@ -69,7 +69,7 @@
             this.NextRoute.Name = "NextRoute";
             this.NextRoute.Size = new System.Drawing.Size(157, 114);
             this.NextRoute.TabIndex = 1;
-            this.NextRoute.Text = "NextBike";
+            this.NextRoute.Text = "NextStep";
             this.NextRoute.UseVisualStyleBackColor = false;
             this.NextRoute.Click += new System.EventHandler(this.NextRoute_Click);
             // 
@@ -81,7 +81,7 @@
             this.NextCarRoute.Name = "NextCarRoute";
             this.NextCarRoute.Size = new System.Drawing.Size(157, 117);
             this.NextCarRoute.TabIndex = 2;
-            this.NextCarRoute.Text = "NextCar";
+            this.NextCarRoute.Text = "NextRoute";
             this.NextCarRoute.UseVisualStyleBackColor = false;
             this.NextCarRoute.Click += new System.EventHandler(this.NextCarRoute_Click);
             this.NextCarRoute.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NextCarRoute_KeyDown);
