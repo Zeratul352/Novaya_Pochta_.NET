@@ -16,9 +16,9 @@ namespace Novaya_Pochta_.NET
     //[STAThread]
     class Program
     {
-        static void Main(string[] args)
+        public static Random random = new Random((int)DateTime.Now.Ticks);
+        public static void MainOld()
         {
-            Random random = new Random((int)DateTime.Now.Ticks);
             GoogleMapProvider.Instance.ApiKey = "AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";
             //StreamWriter output = new StreamWriter("output");
             //output.WriteLine("Hello world");
@@ -42,7 +42,7 @@ namespace Novaya_Pochta_.NET
             for (int k = 0; k < 5; k++)
             {
                 List<LandPoint> request = new List<LandPoint>();
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     int randnum = random.Next(Deliverer.Adresses.Count);
                     if (request.Contains(Deliverer.Adresses[randnum]))
@@ -53,13 +53,14 @@ namespace Novaya_Pochta_.NET
                     {
                         request.Add(Deliverer.Adresses[randnum]);
                     }
-                    
+
                 }
                 request.Add(request.First());
-                request = Mathematics.GetRoute(request);
-                myForm.Car.Add(request);
+                //request = Mathematics.GetRoute(request);
+                //myForm.Car.Add(Mathematics.GetRoute(request));
+                //myForm.Car.Add(Mathematics.GetGenetic(request));
             }
-            
+
             /*int[,] matrix = Mathematics.GetDistanceMatrix(request);
             StreamWriter output = new StreamWriter("output");
             for(int i = 0; i < 8; i++)
@@ -74,12 +75,28 @@ namespace Novaya_Pochta_.NET
             */
 
 
-           
-            
-            Application.EnableVisualStyles();
-            
-            Application.Run(myForm);
 
+
+            Application.EnableVisualStyles();
+
+            //Application.Run(myForm);
+        }
+        static void Main(string[] args)
+        {
+            MainOld();
+            Deliverer warehouse = new Deliverer(10000, 0, 0, 0);
+            warehouse.RandomFill();
+            Deliverer bike_courier = new Deliverer(100, 100, 300, 0);
+            Deliverer car_courier = new Deliverer(1000, 500, 600, 0);
+            Deliverer lorry_courier = new Deliverer(3000, 2000, 600, 0);
+            bike_courier.TransferWithCap(warehouse, 100, 5);
+            car_courier.TransferWithCap(warehouse, 300, 30);
+            lorry_courier.TransferWithCap(warehouse, 1000, 100);
+
+            bike_courier.GroupMyBoxes();
+            car_courier.GroupMyBoxes();
+            lorry_courier.GroupMyBoxes();
+            Console.ReadKey();
         }
     }
 }

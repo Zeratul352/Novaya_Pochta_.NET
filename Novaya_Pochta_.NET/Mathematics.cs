@@ -12,7 +12,31 @@ namespace Novaya_Pochta_.NET
 {
     class Mathematics
     {
+        private static int inf1 = 100000;
+        private static int inf2 = 200000;
+        private static int DeathClock = 0;
+        private static int record = inf1;
+        private static List<Tuple<int, int>> path = new List<Tuple<int, int>>();
+        private static List<int> solution = new List<int>();
+        private static List<Tuple<int, int>> lastStep = new List<Tuple<int, int>>();
+        private static Matrix _sourceMatrix;
         public static List<LandPoint> GetRoute(List<LandPoint> fullroute)
+        {
+            List<LandPoint> ToMatrix = new List<LandPoint>(fullroute);
+            ToMatrix.RemoveAt(ToMatrix.Count - 1);
+            
+            List<LandPoint> result = new List<LandPoint>();
+            int[,] matrix = GetDistanceMatrix(ToMatrix);
+            //matrix = MatrixReduction(matrix);
+            InitLittle(new Matrix(matrix), 1000000);
+            SolveLittle();
+            foreach(var i in solution)
+            {
+                result.Add(fullroute[i]);
+            }
+            return result;
+        }
+        public static List<LandPoint> GetGenetic(List<LandPoint> fullroute)
         {
             List<LandPoint> ToMatrix = new List<LandPoint>(fullroute);
             ToMatrix.RemoveAt(ToMatrix.Count - 1);
@@ -21,6 +45,8 @@ namespace Novaya_Pochta_.NET
             int bestlength = 1000000;
             List<LandPoint> result = new List<LandPoint>();
             int[,] matrix = GetDistanceMatrix(ToMatrix);
+            //matrix = MatrixReduction(matrix);
+            //result = HungaryAlgorythm(matrix, ToMatrix);
             for (int i = 0; i < 10; i++)
             {
                 Tuple<List<LandPoint>, int> candidate = GetRoute(matrix, ToAlgorythm, fullroute.First(), fullroute.First());
@@ -93,6 +119,312 @@ namespace Novaya_Pochta_.NET
             }
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
             return matrix;
+        }
+
+        public static int [,] MatrixReduction(int [,] Matrix)
+        {
+            for(int i = 0; i < Matrix.GetLength(1); i++)
+            {
+                Matrix[i, i] = inf1;
+            }
+            for(int i = 0; i < Matrix.GetLength(1); i++)
+            {
+                int min = inf1;
+                for(int j = 0; j < Matrix.GetLength(0); j++)
+                {
+                    if(Matrix[i,j] < min)
+                    {
+                        min = Matrix[i, j];
+                    }
+                }
+                for(int j = 0; j < Matrix.GetLength(0); j++)
+                {
+                    Matrix[i, j] -= min;
+                }
+            }
+            for (int i = 0; i < Matrix.GetLength(1); i++)
+            {
+                int min = 90000;
+                for (int j = 0; j < Matrix.GetLength(0); j++)
+                {
+                    if (Matrix[j, i] < min)
+                    {
+                        min = Matrix[j, i];
+                    }
+                }
+                for (int j = 0; j < Matrix.GetLength(0); j++)
+                {
+                    Matrix[j, i] -= min;
+                }
+            }
+
+            return Matrix;
+        }
+        public static bool TryToGetSolution(int [,] matrix)
+        {
+            int combinations = 1;
+            int count = matrix.GetLength(0);
+            for(int i = 0; i < count; i++)
+            {
+                int zeros = 0;
+                for(int j = 0; j < count; j++)
+                {
+                    if(matrix[i, j] == 0)
+                    {
+                        zeros += 1;
+                    }
+                }
+                combinations *= zeros;
+            }
+            if(combinations == 0)
+            {
+                return false;
+            }
+
+            return false;
+        }
+        public static List<LandPoint> HungaryAlgorythm(int [,] Matrix, List<LandPoint> destinations)
+        {
+            /*int[,] matrix = new int[Matrix.GetLength(0), Matrix.GetLength(1)];
+            for(int i = 0; i < Matrix.GetLength(0); i++)
+            {
+                for(int j = 0; j < Matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = Matrix[i, j];
+                }
+            }
+            int count = Matrix.GetLength(0);
+            matrix = MatrixReduction(matrix);
+            while (!TryToGetSolution(matrix))
+            {
+                for(int line = 0; line < count; line++)
+                {
+                    for(int row = 0; row < count; row++)
+                    {
+                        int zero_rows = 0;
+                        int zero_lines = 0;
+                        if (matrix[line, row] == 0)
+                        {
+                            for (int i = 0; i < count; i++)
+                            {
+                                if (matrix[line, i] == 0)
+                                {
+                                    zero_lines += 1;
+                                }
+                                if(matrix[i, row] == 0)
+                                {
+                                    zero_rows += 1;
+                                }
+                            }
+                            if(zero_lines >= zero_rows)
+                            {
+                                for(int j = 0; j < count; j++)
+                                {
+                                    if (matrix[line, j] < 0)
+                                    {
+                                        matrix[line, j] *= -1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for(int j = 0; j < count; j++)
+                                {
+                                    if(matrix[j, row] < 0)
+                                    {
+                                        matrix[j, row] *= -1;
+                                    }                                
+                                }
+                            }
+                        }
+                    }
+                }//finding and crossing out lines and rows
+                int min = 100000;
+                for(int i = 0; i < count; i++)
+                {
+                    for(int j = 0; j < count; j++)
+                    {
+                        if((matrix[i,j] < min) && (matrix[i,j] > 0))
+                        {
+                            min = matrix[i, j];
+                        }
+                    }
+                }
+                for(int i = 0; i < count; i++)
+                {
+                    for(int j = 0; j < count; j++)
+                    {
+                        if(matrix[i,j] > 0)
+                        {
+                            matrix[i, j] -= min;
+                        }
+                    }
+                }
+                for(int line = 0; line < count; line++)
+                {
+                    for(int row = 0; row < count; row++)
+                    {
+                        if(matrix[line, row] < 0)
+                        {
+                            bool flag = true;
+                            for(int i = 0; i < count; i++)
+                            {
+                                if((matrix[i, row] > 0) && (matrix[line, i] > 0))
+                                {
+                                    flag = false;
+                                }
+                            }
+                            if (flag)
+                            {
+                                matrix[line, row] -= min;
+                            }
+                        }
+                    }
+                }
+                for(int i = 0; i < count; i++)
+                {
+                    for(int j = 0; j < count; j++)
+                    {
+                        if(matrix[i, j] < 0)
+                        {
+                            matrix[i, j] *= -1;
+                        }
+                    }
+                }
+                matrix = MatrixReduction(matrix);
+            }
+            List<LandPoint> result = new List<LandPoint>();
+            for (int i = 0; i < count; i++)
+            {
+                result.Clear();
+                result.Add(destinations[0]);
+                if (matrix[0, i] == 0)
+                {
+                    
+                    int temp = i;
+                    for (int j = 0; j < matrix.GetLength(0); j++)
+                    {
+                        if (matrix[temp, j] == 0)
+                        {
+                            result.Add(destinations[temp]);
+                            temp = j;
+                            j = 0;
+                        }
+                    }
+                    if (temp == 0)
+                    {
+                        break;
+                    }
+                }
+            }*/
+            int count = Matrix.GetLength(1);
+            for(int i = 0; i < count; i++)
+            {
+                for(int j = 0; j < count; j++)
+                {
+                    Matrix[i, j] *= -1;
+                }
+            }
+            for(int i = 0; i < count; i++)
+            {
+                Matrix[i, i] = 100000;
+            }
+            List<int> u = new List<int>();
+            List<int> v = new List<int>();
+            List<int> p = new List<int>();
+            List<int> way = new List<int>();
+            for(int i = 0; i <= count; i++)
+            {
+                u.Add(0);
+                v.Add(0);
+                p.Add(0);
+                way.Add(0);
+            }
+            for(int i = 1; i <= count; i++)
+            {
+                p[0] = i;
+                int j0 = 0;
+                List<int> minv = new List<int>();
+                List<bool> used = new List<bool>();
+                for(int counter = 0; counter <= count; counter++)
+                {
+                    minv.Add(100000);
+                    used.Add(false);
+                }
+                do
+                {
+                    used[j0] = true;
+                    int i0 = p[j0];
+                    int delta = 100000;
+                    int j1 = 0;
+                    for (int j = 1; j <= count; j++)
+                    {
+                        if (!used[j])
+                        {
+                            int cur = Matrix[i0 - 1, j - 1] - u[i0] - v[j];
+                            if (cur < minv[j])
+                            {
+                                minv[j] = cur;
+                                way[j] = j0;
+                            }
+                            if (minv[j] < delta)
+                            {
+                                delta = minv[j];
+                                j1 = j;
+                            }
+                        }
+                    }
+                    for (int j = 0; j <= count; j++)
+                    {
+                        if (used[j])
+                        {
+                            u[p[j]] += delta;
+                            v[j] -= delta;
+                        }
+                        else
+                        {
+                            minv[j] -= delta;
+                        }
+                    }
+                    j0 = j1;
+                } while (p[j0] != 0);
+                do
+                {
+                    int j1 = way[j0];
+                    p[j0] = p[j1];
+                    j0 = j1;
+                } while (j0 != 0);
+            }
+            List<int> ans = new List<int>();
+            for(int i = 0; i <= count; i++)
+            {
+                ans.Add(0);
+            }
+            for(int j = 1; j <= count; j++)
+            {
+                ans[p[j]] = j;
+            }
+           
+            List<LandPoint> result = new List<LandPoint>();
+            /*for(int i = 1; i <= count; i++)
+            {
+                if(ans[i] == 1)
+                {
+                    for(int j = 0; j < count; j++)
+                    {
+                        result.Add(destinations[ans[i] - 1]);
+                        i = i % count + 1;
+                    }
+                    break;
+                }
+            }
+            result.Add(destinations[0]);*/
+            for(int i = 1; i <= count; i++)
+            {
+                result.Add(destinations[ans[i] - 1]);
+            }
+            result.Add(destinations[ans[1]- 1]);
+            return result;
         }
         public static Tuple<List<LandPoint>, int> GetRoute(int [,] Matrix, List<LandPoint> original, LandPoint start, LandPoint last)
         {
@@ -284,6 +616,288 @@ namespace Novaya_Pochta_.NET
                 result.Add(points[BestWay[i]]);
             }
             return new Tuple<List<LandPoint>, int>(result, BestWay[end]);
+        }
+        public static void InitLittle(Matrix m, int record)
+        {
+            inf1 = 0;
+            path.Clear();
+            lastStep.Clear();
+            solution.Clear();
+            int[,] copy = m.matrix;
+            _sourceMatrix = new Matrix(copy);
+            for (int i = 0; i < m.matrix.GetLength(0); i++)
+                for (int j = 0; j < m.matrix.GetLength(0); j++)
+                    _sourceMatrix.matrix[i, j] = m.matrix[i, j];
+            for(int i = 0; i < m.matrix.GetLength(0); i++)
+            {
+                for(int j = i + 1; j < m.matrix.GetLength(1); j++)
+                {
+                    inf1 += m.matrix[i, j] + m.matrix[j, i];
+                }
+            }
+            for(int i = 0; i < m.matrix.GetLength(0); i++)
+            {
+                _sourceMatrix.matrix[i, i] = inf1;
+            }
+            Mathematics.record = record;
+        }
+
+        public static void SolveLittle()
+        {
+            DeathClock = 0;
+            try
+            {
+                handleMatrix(_sourceMatrix, new List<Tuple<int, int>>(), 0);//solution
+            }
+            finally
+            {
+                //recording solution
+                //adding zero as begin
+                solution.Add(0);
+                while (path.Count > 0)
+                {
+                    
+                    foreach (var iter in path)
+                    {
+                        //if is present edge , coming out of current point, adding next one and removing edge
+                        if (iter.Item1 == solution.Last())
+                        {
+                            solution.Add(iter.Item2);
+                            path.Remove(iter);
+                            break;
+                        }
+                    }
+                }
+            }
+            
+        }
+        public static int Reduction(Matrix m)
+        {
+            int ret = 0;// sum of all extracted values
+            int count = m.matrix.GetLength(0);
+            List<int> minRow = new List<int>();// arrays of minimal elements
+            List<int> minColomn = new List<int>();
+            for(int i = 0; i < count; i++)
+            {
+                minRow.Add(inf1);
+                minColomn.Add(inf2);
+            }
+            
+            for(int i = 0; i < count; i++)// getting around all matrix
+            {
+                for(int j = 0; j < count; j++)//seek for min element in a line
+                {
+                    if(m.matrix[i,j] < minRow[i])
+                    {
+                        minRow[i] = m.matrix[i, j];
+                    }
+                }
+                for(int j = 0; j < count; j++)
+                {
+                    if((m.matrix[i, j] < inf1) && (m.matrix[i, j] < inf2))// substract min element from all not - infinity lines
+                    {
+                        m.matrix[i, j] -= minRow[i];
+                    }
+                    if(m.matrix[i, j] < minColomn[j])// look for min elem in rows after substraction
+                    {
+                        minColomn[j] = m.matrix[i, j];
+
+                    }
+                }
+            }
+            //substracting min element from all not - infinity rows
+            for(int j = 0; j < count; j++)
+            {
+                for(int i = 0; i < count; i++)
+                {
+                    if((m.matrix[i, j] < inf1) && (m.matrix[i, j] < inf2))
+                    {
+                        m.matrix[i, j] -= minColomn[j];
+                    }
+                }
+            }
+            // sum all substracted values
+            foreach(int i in minColomn)
+            {
+                ret += i;
+            }
+            foreach(int i in minRow)
+            {
+                ret += i;
+
+            }
+
+            return ret;
+        }
+
+        public static int GetKoefficients(Matrix m, int r, int c)
+        {
+            int rmin, cmin;
+            rmin = cmin = inf1;
+            for(int i = 0; i < m.matrix.GetLength(0); i++)
+            {
+                if(i != r)
+                {
+                    if(m.matrix[i, c] < rmin)
+                    {
+                        rmin = m.matrix[i, c];
+                    }
+                }
+                if(i != c)
+                {
+                    if(m.matrix[r, i] < cmin)
+                    {
+                        cmin = m.matrix[r, i];
+                    }
+                }
+            }
+            return rmin + cmin;
+        }
+        public static void logPath(List<Tuple<int,int>> path)
+        {
+            lastStep = path;
+        }
+        public static void AddInfinity(Matrix m)
+        {
+            List<bool> infRow = new List<bool>();// lists of rows and columns that contain infinity
+            List<bool> infColumn = new List<bool>();
+            for(int i = 0; i < m.matrix.GetLength(0); i++)
+            {
+                infRow.Add(false);
+                infColumn.Add(false);
+            }
+            for(int i = 0; i < m.matrix.GetLength(0); i++)//look for infinitives
+            {
+                for(int j = 0; j < m.matrix.GetLength(0); j++)
+                {
+                    if(m.matrix[i,j] == inf1)
+                    {
+                        infRow[i] = true;
+                        infColumn[j] = true;
+                    }
+                }
+            }
+            //look for line without infinity
+            int notInf = 0;
+            for(int i = 0; i < m.matrix.GetLength(0); i++)
+            {
+                if(infRow[i] == false)
+                {
+                    notInf = i;
+                    break;
+                }
+            }
+            //look for row without infinity and add it
+            for(int i = 0; i < m.matrix.GetLength(0); i++)
+            {
+                if(infColumn[i] == false)
+                {
+                    m.matrix[notInf, i] = inf1;
+                    break;
+                }
+            }
+        }
+        public static List<Tuple<int, int>> findBestZeros(Matrix m)
+        {
+            // list of zero elements coordinates
+            List<Tuple<int, int>> zeros = new List<Tuple<int, int>>();
+            // list of coefficients
+            List<int> coefflist = new List<int>();
+            // max coefficient
+            int maxCoeff = 0;
+            for (int i = 0; i < m.matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < m.matrix.GetLength(1); j++)
+                {
+                    if (m.matrix[i, j] == 0)// looking for zero elements
+                    {
+                        zeros.Add(new Tuple<int, int>(i, j));// count their coefficients and add
+                        coefflist.Add(GetKoefficients(m, i, j));
+                        if (coefflist.Last() > maxCoeff)
+                        {
+                            maxCoeff = coefflist.Last();
+                        }
+                    }
+                }
+            }
+            for(int i = 0; i < zeros.Count; i++)
+            {
+                if(coefflist[i] != maxCoeff)
+                {
+                    zeros.RemoveAt(i);
+                    coefflist.RemoveAt(i);
+                    i--;
+                }
+            }
+            return zeros;
+        }
+
+        public static int CalcCost(List<Tuple<int, int>> source)// calculate value of the path
+        {
+            int result = 0;
+            foreach(Tuple<int, int> tuple in source)
+            {
+                result += _sourceMatrix.matrix[tuple.Item1, tuple.Item2];
+            }
+            return result;
+        }
+        public static void candidateSolution(List<Tuple<int, int>> aWay)
+        {
+            int curCost = CalcCost(aWay);
+            if(record < curCost)
+            {
+                return;
+            }
+            record = curCost;
+            path = aWay;
+        }
+
+        public static void handleMatrix(Matrix m, List<Tuple<int, int>> way, int bottomlimit)
+        {
+            if(DeathClock >= 500)
+            {
+                return;
+            }
+            DeathClock++;
+            if(m.matrix.GetLength(0) < 2)
+            {
+                throw new Exception("Logic error: matrix smaller than 2x2");
+            }
+            if(m.matrix.GetLength(0) == 2)
+            {
+                //log the current way like the last watched
+                logPath(way);
+                //choose not infinity element in first line
+                int i = m.matrix[0, 0] >= inf1 ? 1 : 0;
+                // creating list with result way
+                List<Tuple<int, int>> result = new List<Tuple<int, int>>(way);
+                result.Add(new Tuple<int, int>(m.GetRowNumber(0), m.GetColumnNumber(i)));
+                result.Add(new Tuple<int, int>(m.GetRowNumber(1), m.GetColumnNumber(1 - i)));
+                candidateSolution(result);
+                return;
+            }
+            Matrix matrix = m.copy();
+            bottomlimit += Reduction(matrix);
+            if (bottomlimit > record)
+            {
+                logPath(way);// log this way as the last searched
+                return;
+            }// getting list of zeros with max coefficients
+            var zeros = findBestZeros(matrix);
+            var edge = zeros.First();
+            var newMatrix = matrix.copy();//going for 2 matrixes: with an edge and without
+            newMatrix.CrossOut(edge.Item1, edge.Item2); // removing the edge
+            var newPath = new List<Tuple<int, int>>(way);
+            newPath.Add(new Tuple<int, int>(matrix.GetRowNumber(edge.Item1), matrix.GetColumnNumber(edge.Item2)));
+            AddInfinity(newMatrix);// to avoid loops
+            handleMatrix(newMatrix, newPath, bottomlimit);// look for a set with edge
+            // set without edge
+            newMatrix = matrix;
+            newMatrix.matrix[edge.Item1, edge.Item1] = inf1 + 1;// add infinity instead of edge
+            handleMatrix(newMatrix, way, bottomlimit);
+
+
+            
         }
     }
 }

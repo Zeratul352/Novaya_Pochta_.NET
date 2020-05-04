@@ -78,7 +78,7 @@ namespace Novaya_Pochta_.NET
                 xmldoc.Load(dataStream);
                 xmldoc.Save("GeocodeingResponse");
                 XmlElement xRoot = xmldoc.DocumentElement;
-                //XmlNodeList geometry = xmldoc.SelectNodes("geometry");
+                
                 if(xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lat") == null)
                 {
                     continue;
@@ -126,28 +126,24 @@ namespace Novaya_Pochta_.NET
             salary = sal;
             speed = sp;
             volumecarrying = carry;
+            CarryingNow = new List<Box>();
             mytime = new DateTime(2020, 2, 12, 9, 0, 0);
         }
         public void GroupMyBoxes()
         {
-            for(int i = 0; i < CarryingNow.Capacity - 1; i++)
-            {
-                for(int j = 0; j < CarryingNow.Capacity - i - 1; j++)
-                {
-                    if(CarryingNow[j].adress > CarryingNow[j + 1].adress)
-                    {
-                        Box.SwapBoxes(CarryingNow[j], CarryingNow[j + 1]);
-                    }
-                }
-            }
+            
 
-            for(int i = 0; i < CarryingNow.Capacity - 1; i++)
+            for(int i = 0; i < CarryingNow.Count; i++)
             {
-                if((CarryingNow[i + 1].adress == CarryingNow[i].adress) && (CarryingNow[i].volume + CarryingNow[i + 1].volume <= 1000))
+                for (int j = i + 1; j < CarryingNow.Count ; j++)
                 {
-                    CarryingNow[i] = CarryingNow[i] + CarryingNow[i + 1];
-                    CarryingNow.Remove(CarryingNow[i + 1]);
-                    i--;
+                    if ((CarryingNow[i].adress == CarryingNow[j].adress) && (CarryingNow[j].volume + CarryingNow[i].volume <= 1000))
+                    {
+                        CarryingNow[i] = CarryingNow[j] + CarryingNow[i];
+                        CarryingNow.Remove(CarryingNow[j]);
+                        
+                        j--;
+                    }
                 }
             }
         }
@@ -178,7 +174,7 @@ namespace Novaya_Pochta_.NET
                 }
             }
         }
-        public void SchedulePrint(int [,] DistanceMatrix, List <int> way, string filename)
+        /*(public void SchedulePrint(int [,] DistanceMatrix, List <int> way, string filename)
         {
             StreamWriter output = new StreamWriter(filename, false);
             List<Box> NewCarry = new List<Box>();
@@ -205,7 +201,7 @@ namespace Novaya_Pochta_.NET
             mytime.AddMinutes(15 + Math.Round(DistanceMatrix[way.Capacity - 3, way.Capacity - 2] / speed));
             output.WriteLine("{0, 50} | {1}:{2}", "Warehouse", mytime.Hour, mytime.Minute);
             output.Close();
-        }
+        }*/
         public void FillBack(Deliverer donor)
         {
             for(int i = donor.CarryingNow.Capacity - 1; i >= 0; i--)
@@ -227,7 +223,24 @@ namespace Novaya_Pochta_.NET
                 }
             }
         }
-        public void FileFill(string filename)
+        public void RandomFill()
+        {
+            if(Adresses.Count == 0)
+            {
+                throw new Exception("No source adresses");
+            }
+            for(int i = 0; i < 50; i++)
+            {
+                LandPoint adress = Adresses[Program.random.Next(Adresses.Count)];
+                double volume = Math.Round(Program.random.NextDouble() * 100);
+                double mass = Math.Round(Program.random.NextDouble() * 100);
+                Box newBox = new Box(volume, mass, i.ToString(), adress);
+                AddBox(newBox);
+            }
+           
+
+        }
+        /*public void FileFill(string filename)
         {
             StreamReader reader = new StreamReader(filename);
             int count = Convert.ToInt32(reader.ReadLine());
@@ -250,7 +263,17 @@ namespace Novaya_Pochta_.NET
                 AddBox(new Box(volume, Convert.ToString(i + 1), id));
             }
             reader.Close();
+        }*/
+        public void TransferWithCap(Deliverer source, double volume_cap, double mass_cap)
+        {
+            for(int i = 0; i < source.CarryingNow.Count; i++)
+            {
+                if(source.CarryingNow[i].mass <= mass_cap && source.CarryingNow[i].volume < volume_cap)
+                {
+                    AddBox(source.TakeBox(i));
+                    i--;
+                }
+            }
         }
-
     }
 }

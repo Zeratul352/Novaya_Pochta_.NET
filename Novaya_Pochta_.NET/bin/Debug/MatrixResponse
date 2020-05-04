@@ -1,26 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <DistanceMatrixResponse>
   <status>OK</status>
-  <origin_address>Vulytsya Khersonsʹka, 15, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
-  <origin_address>Slobozhanska St, 60, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
-  <origin_address>Provulok Karla Marksa, 4, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
-  <origin_address>Vulytsya Kooperatyvna, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
   <origin_address>Vulytsya Robocha, 39, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
+  <origin_address>Vulytsya Zmahannya, 29, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
   <origin_address>Vulytsya Poltavsʹka, 18, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
-  <origin_address>Zlahody St, 88, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
-  <origin_address>Vulytsya Veterynarna, 30, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
-  <origin_address>Dzherelianska Street, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
+  <origin_address>Vulytsya Kooperatyvna, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
   <origin_address>Vulytsya Depovsʹka, 39, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
-  <destination_address>Vulytsya Khersonsʹka, 15, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
-  <destination_address>Slobozhanska St, 60, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
-  <destination_address>Provulok Karla Marksa, 4, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
-  <destination_address>Vulytsya Kooperatyvna, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <origin_address>Dukhovska St, 19, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</origin_address>
+  <origin_address>Dzherelianska Street, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
+  <origin_address>Vulytsya Vesnyana, 8, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</origin_address>
   <destination_address>Vulytsya Robocha, 39, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
+  <destination_address>Vulytsya Zmahannya, 29, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
   <destination_address>Vulytsya Poltavsʹka, 18, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
-  <destination_address>Zlahody St, 88, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
-  <destination_address>Vulytsya Veterynarna, 30, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
-  <destination_address>Dzherelianska Street, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <destination_address>Vulytsya Kooperatyvna, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
   <destination_address>Vulytsya Depovsʹka, 39, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
+  <destination_address>Dukhovska St, 19, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</destination_address>
+  <destination_address>Dzherelianska Street, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
+  <destination_address>Vulytsya Vesnyana, 8, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</destination_address>
   <row>
     <element>
       <status>OK</status>
@@ -36,100 +32,78 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>414</value>
-        <text>7 mins</text>
-      </duration>
-      <distance>
-        <value>3838</value>
-        <text>3.8 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>351</value>
+        <value>376</value>
         <text>6 mins</text>
       </duration>
       <distance>
-        <value>3010</value>
-        <text>3.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>356</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>3289</value>
-        <text>3.3 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>398</value>
-        <text>7 mins</text>
-      </duration>
-      <distance>
-        <value>3402</value>
+        <value>3428</value>
         <text>3.4 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>335</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>2711</value>
-        <text>2.7 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>367</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>3483</value>
-        <text>3.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>293</value>
+        <value>318</value>
         <text>5 mins</text>
       </duration>
       <distance>
-        <value>2455</value>
-        <text>2.5 km</text>
+        <value>2564</value>
+        <text>2.6 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>367</value>
+        <value>85</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>494</value>
+        <text>0.5 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>160</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1376</value>
+        <text>1.4 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>277</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2127</value>
+        <text>2.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>174</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1094</value>
+        <text>1.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>342</value>
         <text>6 mins</text>
       </duration>
       <distance>
-        <value>2967</value>
+        <value>3017</value>
         <text>3.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>269</value>
-        <text>4 mins</text>
-      </duration>
-      <distance>
-        <value>2380</value>
-        <text>2.4 km</text>
       </distance>
     </element>
   </row>
@@ -137,12 +111,12 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>408</value>
-        <text>7 mins</text>
+        <value>385</value>
+        <text>6 mins</text>
       </duration>
       <distance>
-        <value>3838</value>
-        <text>3.8 km</text>
+        <value>3428</value>
+        <text>3.4 km</text>
       </distance>
     </element>
     <element>
@@ -159,34 +133,12 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>169</value>
-        <text>3 mins</text>
+        <value>327</value>
+        <text>5 mins</text>
       </duration>
       <distance>
-        <value>1502</value>
-        <text>1.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>132</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1317</value>
-        <text>1.3 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>108</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>812</value>
-        <text>0.8 km</text>
+        <value>2736</value>
+        <text>2.7 km</text>
       </distance>
     </element>
     <element>
@@ -196,199 +148,76 @@
         <text>6 mins</text>
       </duration>
       <distance>
-        <value>2999</value>
-        <text>3.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>91</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>956</value>
-        <text>1.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>212</value>
-        <text>4 mins</text>
-      </duration>
-      <distance>
-        <value>1887</value>
-        <text>1.9 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>141</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1219</value>
-        <text>1.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>153</value>
-        <text>3 mins</text>
-      </duration>
-      <distance>
-        <value>1458</value>
-        <text>1.5 km</text>
-      </distance>
-    </element>
-  </row>
-  <row>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>337</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>3010</value>
-        <text>3.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>173</value>
-        <text>3 mins</text>
-      </duration>
-      <distance>
-        <value>1393</value>
-        <text>1.4 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>0</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>0</value>
-        <text>1 m</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>60</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>259</value>
-        <text>0.3 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>129</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>570</value>
-        <text>0.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>273</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2172</value>
-        <text>2.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>98</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>650</value>
-        <text>0.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>121</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>772</value>
-        <text>0.8 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>135</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>701</value>
-        <text>0.7 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>119</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>984</value>
-        <text>1.0 km</text>
-      </distance>
-    </element>
-  </row>
-  <row>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>340</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>3289</value>
+        <value>3315</value>
         <text>3.3 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>133</value>
-        <text>2 mins</text>
+        <value>257</value>
+        <text>4 mins</text>
       </duration>
       <distance>
-        <value>1317</value>
-        <text>1.3 km</text>
+        <value>2405</value>
+        <text>2.4 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>55</value>
-        <text>1 min</text>
+        <value>213</value>
+        <text>4 mins</text>
       </duration>
       <distance>
-        <value>259</value>
-        <text>0.3 km</text>
+        <value>1739</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>351</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>2992</value>
+        <text>3.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>113</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>702</value>
+        <text>0.7 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>354</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>2564</value>
+        <text>2.6 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>357</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>2736</value>
+        <text>2.7 km</text>
       </distance>
     </element>
     <element>
@@ -402,6 +231,63 @@
         <text>1 m</text>
       </distance>
     </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>313</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2451</value>
+        <text>2.5 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>226</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1541</value>
+        <text>1.5 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>198</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>787</value>
+        <text>0.8 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>320</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2128</value>
+        <text>2.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>323</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2325</value>
+        <text>2.3 km</text>
+      </distance>
+    </element>
+  </row>
+  <row>
     <element>
       <status>OK</status>
       <duration>
@@ -416,7 +302,18 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>276</value>
+        <value>338</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3315</value>
+        <text>3.3 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>280</value>
         <text>5 mins</text>
       </duration>
       <distance>
@@ -427,34 +324,12 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>58</value>
+        <value>0</value>
         <text>1 min</text>
       </duration>
       <distance>
-        <value>575</value>
-        <text>0.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>124</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1051</value>
-        <text>1.1 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>138</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>980</value>
-        <text>1.0 km</text>
+        <value>0</value>
+        <text>1 m</text>
       </distance>
     </element>
     <element>
@@ -468,111 +343,45 @@
         <text>1.3 km</text>
       </distance>
     </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>238</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>2014</value>
+        <text>2.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>136</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>980</value>
+        <text>1.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>304</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2904</value>
+        <text>2.9 km</text>
+      </distance>
+    </element>
   </row>
   <row>
     <element>
       <status>OK</status>
       <duration>
-        <value>380</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>3402</value>
-        <text>3.4 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>109</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>812</value>
-        <text>0.8 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>123</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>679</value>
-        <text>0.7 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>86</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>494</value>
-        <text>0.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>0</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>0</value>
-        <text>1 m</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>316</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2564</value>
-        <text>2.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>81</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>539</value>
-        <text>0.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>165</value>
-        <text>3 mins</text>
-      </duration>
-      <distance>
-        <value>1164</value>
-        <text>1.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>179</value>
-        <text>3 mins</text>
-      </duration>
-      <distance>
-        <value>1094</value>
-        <text>1.1 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>162</value>
+        <value>163</value>
         <text>3 mins</text>
       </duration>
       <distance>
@@ -580,111 +389,21 @@
         <text>1.4 km</text>
       </distance>
     </element>
-  </row>
-  <row>
     <element>
       <status>OK</status>
       <duration>
-        <value>331</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>2711</value>
-        <text>2.7 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>344</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>2999</value>
-        <text>3.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>281</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2172</value>
-        <text>2.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>286</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2451</value>
-        <text>2.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>328</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2564</value>
-        <text>2.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>0</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>0</value>
-        <text>1 m</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>297</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2644</value>
-        <text>2.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>223</value>
+        <value>253</value>
         <text>4 mins</text>
       </duration>
       <distance>
-        <value>1616</value>
-        <text>1.6 km</text>
+        <value>2405</value>
+        <text>2.4 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>297</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2128</value>
-        <text>2.1 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>199</value>
+        <value>195</value>
         <text>3 mins</text>
       </duration>
       <distance>
@@ -692,72 +411,15 @@
         <text>1.5 km</text>
       </distance>
     </element>
-  </row>
-  <row>
     <element>
       <status>OK</status>
       <duration>
-        <value>353</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>3483</value>
-        <text>3.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>93</value>
+        <value>122</value>
         <text>2 mins</text>
       </duration>
       <distance>
-        <value>956</value>
-        <text>1.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>95</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>759</value>
-        <text>0.8 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>59</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>575</value>
-        <text>0.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>77</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>539</value>
-        <text>0.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>289</value>
-        <text>5 mins</text>
-      </duration>
-      <distance>
-        <value>2644</value>
-        <text>2.6 km</text>
+        <value>1263</value>
+        <text>1.3 km</text>
       </distance>
     </element>
     <element>
@@ -774,34 +436,34 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>137</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1244</value>
-        <text>1.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>151</value>
+        <value>154</value>
         <text>3 mins</text>
       </duration>
       <distance>
-        <value>1174</value>
-        <text>1.2 km</text>
+        <value>1105</value>
+        <text>1.1 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>135</value>
+        <value>105</value>
         <text>2 mins</text>
       </duration>
       <distance>
-        <value>1457</value>
-        <text>1.5 km</text>
+        <value>809</value>
+        <text>0.8 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>219</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1995</value>
+        <text>2.0 km</text>
       </distance>
     </element>
   </row>
@@ -809,12 +471,78 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>282</value>
+        <value>292</value>
         <text>5 mins</text>
       </duration>
       <distance>
-        <value>2455</value>
-        <text>2.5 km</text>
+        <value>2127</value>
+        <text>2.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>243</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1739</value>
+        <text>1.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>195</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>787</value>
+        <text>0.8 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>251</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>2014</value>
+        <text>2.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>164</value>
+        <text>3 mins</text>
+      </duration>
+      <distance>
+        <value>1105</value>
+        <text>1.1 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>0</value>
+        <text>1 min</text>
+      </duration>
+      <distance>
+        <value>0</value>
+        <text>1 m</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>258</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1692</value>
+        <text>1.7 km</text>
       </distance>
     </element>
     <element>
@@ -824,96 +552,8 @@
         <text>3 mins</text>
       </duration>
       <distance>
-        <value>1887</value>
-        <text>1.9 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>117</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>772</value>
-        <text>0.8 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>122</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1051</value>
-        <text>1.1 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>164</value>
-        <text>3 mins</text>
-      </duration>
-      <distance>
-        <value>1164</value>
-        <text>1.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>218</value>
-        <text>4 mins</text>
-      </duration>
-      <distance>
-        <value>1616</value>
-        <text>1.6 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>134</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1244</value>
-        <text>1.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>0</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>0</value>
-        <text>1 m</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>133</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>728</value>
-        <text>0.7 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>64</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>428</value>
-        <text>0.4 km</text>
+        <value>1328</value>
+        <text>1.3 km</text>
       </distance>
     </element>
   </row>
@@ -921,51 +561,7 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>338</value>
-        <text>6 mins</text>
-      </duration>
-      <distance>
-        <value>2967</value>
-        <text>3.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>157</value>
-        <text>3 mins</text>
-      </duration>
-      <distance>
-        <value>1219</value>
-        <text>1.2 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>121</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>701</value>
-        <text>0.7 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>126</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>980</value>
-        <text>1.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>168</value>
+        <value>167</value>
         <text>3 mins</text>
       </duration>
       <distance>
@@ -976,7 +572,18 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>274</value>
+        <value>337</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>2992</value>
+        <text>3.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>279</value>
         <text>5 mins</text>
       </duration>
       <distance>
@@ -987,23 +594,34 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>137</value>
+        <value>127</value>
         <text>2 mins</text>
       </duration>
       <distance>
-        <value>1174</value>
-        <text>1.2 km</text>
+        <value>980</value>
+        <text>1.0 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>123</value>
+        <value>121</value>
         <text>2 mins</text>
       </duration>
       <distance>
-        <value>728</value>
-        <text>0.7 km</text>
+        <value>940</value>
+        <text>0.9 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>237</value>
+        <text>4 mins</text>
+      </duration>
+      <distance>
+        <value>1692</value>
+        <text>1.7 km</text>
       </distance>
     </element>
     <element>
@@ -1020,12 +638,12 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>120</value>
-        <text>2 mins</text>
+        <value>303</value>
+        <text>5 mins</text>
       </duration>
       <distance>
-        <value>940</value>
-        <text>0.9 km</text>
+        <value>2581</value>
+        <text>2.6 km</text>
       </distance>
     </element>
   </row>
@@ -1033,100 +651,78 @@
     <element>
       <status>OK</status>
       <duration>
-        <value>255</value>
+        <value>339</value>
+        <text>6 mins</text>
+      </duration>
+      <distance>
+        <value>3017</value>
+        <text>3.0 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>148</value>
+        <text>2 mins</text>
+      </duration>
+      <distance>
+        <value>704</value>
+        <text>0.7 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>282</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2325</value>
+        <text>2.3 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>299</value>
+        <text>5 mins</text>
+      </duration>
+      <distance>
+        <value>2904</value>
+        <text>2.9 km</text>
+      </distance>
+    </element>
+    <element>
+      <status>OK</status>
+      <duration>
+        <value>212</value>
         <text>4 mins</text>
       </duration>
       <distance>
-        <value>2380</value>
-        <text>2.4 km</text>
+        <value>1995</value>
+        <text>2.0 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>145</value>
-        <text>2 mins</text>
+        <value>167</value>
+        <text>3 mins</text>
       </duration>
       <distance>
-        <value>1458</value>
-        <text>1.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>116</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>984</value>
-        <text>1.0 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>121</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1263</value>
+        <value>1328</value>
         <text>1.3 km</text>
       </distance>
     </element>
     <element>
       <status>OK</status>
       <duration>
-        <value>164</value>
-        <text>3 mins</text>
+        <value>306</value>
+        <text>5 mins</text>
       </duration>
       <distance>
-        <value>1376</value>
-        <text>1.4 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>191</value>
-        <text>3 mins</text>
-      </duration>
-      <distance>
-        <value>1541</value>
-        <text>1.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>133</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>1457</value>
-        <text>1.5 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>59</value>
-        <text>1 min</text>
-      </duration>
-      <distance>
-        <value>428</value>
-        <text>0.4 km</text>
-      </distance>
-    </element>
-    <element>
-      <status>OK</status>
-      <duration>
-        <value>110</value>
-        <text>2 mins</text>
-      </duration>
-      <distance>
-        <value>809</value>
-        <text>0.8 km</text>
+        <value>2581</value>
+        <text>2.6 km</text>
       </distance>
     </element>
     <element>
