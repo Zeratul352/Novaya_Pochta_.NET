@@ -212,8 +212,8 @@ namespace Novaya_Pochta_.NET
             
             StatusLabel.ForeColor = Color.Black;
             Deliverer warehouse = new Deliverer(10000, 0, 0, 0);//adding and filling the warehouse
-            warehouse.RandomFill();
-            //warehouse.FileFill(filename);
+            //warehouse.RandomFill();
+            warehouse.FileFill(filename);
             Deliverer bike_courier = new Deliverer(50, 100, 5, 0);//adding couriers
             Deliverer car_courier = new Deliverer(500, 500, 12, 0);
             Deliverer lorry_courier = new Deliverer(1500, 2000, 15, 0);
@@ -225,19 +225,20 @@ namespace Novaya_Pochta_.NET
             progressStrip.ProgressBar.Value = 10;
 
             bike_courier.GroupMyBoxes();
-            bike_courier.BuildRoutes("Bike");//building routes for bike
+            bike_courier.BuildRoutesAsync("Bike");//building routes for bike
 
             StatusLabel.Text = "Calculations finished for bike curier";
             progressStrip.ProgressBar.Value = 40;
 
             car_courier.GroupMyBoxes();
-            car_courier.BuildRoutes("Car");//building routes for car
+            car_courier.BuildRoutesAsync("Car");//building routes for car
             StatusLabel.Text = "Calculations finished for car curier";
             progressStrip.ProgressBar.Value = 70;
 
 
             lorry_courier.GroupMyBoxes();
-            lorry_courier.BuildRoutes("Lorry");//building routes for lorry
+            lorry_courier.BuildRoutesAsync("Lorry");//building routes for lorry
+            System.Threading.Thread.Sleep(4000);
             StatusLabel.Text = "Calculations finished for lorry curier";
             progressStrip.ProgressBar.Value = 100;
 

@@ -13,15 +13,15 @@ namespace Novaya_Pochta_.NET
 {
     class Mathematics
     {
-        private static int inf1 = 100000;//first infinity value
-        private static int inf2 = 200000;//second infinity value
-        private static int DeathClock = 0;//to avoid stack overflow
-        private static int record = inf1;//the best path length
-        private static List<Tuple<int, int>> path = new List<Tuple<int, int>>();//result of Little algorythm
-        private static List<int> solution = new List<int>();//another representation of result
-        private static List<Tuple<int, int>> lastStep = new List<Tuple<int, int>>();//required in little algorythm
-        private static Matrix _sourceMatrix;//shared distance matrix
-        public static DelivererRoute GetRoute(List<LandPoint> fullroute)//basic func to get route throw Little algorythm
+        private  int inf1 = 100000;//first infinity value
+        private  int inf2 = 200000;//second infinity value
+        private  int DeathClock = 0;//to avoid stack overflow
+        private  int record;//the best path length
+        private  List<Tuple<int, int>> path = new List<Tuple<int, int>>();//result of Little algorythm
+        private  List<int> solution = new List<int>();//another representation of result
+        private  List<Tuple<int, int>> lastStep = new List<Tuple<int, int>>();//required in little algorythm
+        private  Matrix _sourceMatrix;//shared distance matrix
+        public DelivererRoute GetRoute(List<LandPoint> fullroute)//basic func to get route throw Little algorythm
         {
             List<LandPoint> ToMatrix = new List<LandPoint>(fullroute);
             ToMatrix.RemoveAt(ToMatrix.Count - 1);//because we pass a loop route
@@ -609,7 +609,7 @@ namespace Novaya_Pochta_.NET
             }
             return new DelivererRoute(result, destinations);
         }//genetic search of the path
-        public static void InitLittle(Matrix m, int record)
+        public void InitLittle(Matrix m, int record1)
         {
             inf1 = 0;
             path.Clear();
@@ -631,10 +631,10 @@ namespace Novaya_Pochta_.NET
             {
                 _sourceMatrix.matrix[i, i] = inf1;
             }
-            Mathematics.record = record;
+            record = record1;
         }//initiating Little algorythm
 
-        public static List<int> SolveLittle()
+        public List<int> SolveLittle()
         {
             DeathClock = 0;
             List<int> distances = new List<int>();
@@ -671,7 +671,7 @@ namespace Novaya_Pochta_.NET
             return distances;
             
         }//solving it
-        public static int Reduction(Matrix m)//matrix reduction
+        public int Reduction(Matrix m)//matrix reduction
         {
             int ret = 0;// sum of all extracted values
             int count = m.matrix.GetLength(0);
@@ -730,7 +730,7 @@ namespace Novaya_Pochta_.NET
             return ret;
         }
 
-        public static int GetKoefficients(Matrix m, int r, int c)
+        public int GetKoefficients(Matrix m, int r, int c)
         {
             int rmin, cmin;
             rmin = cmin = inf1;
@@ -753,11 +753,11 @@ namespace Novaya_Pochta_.NET
             }
             return rmin + cmin;
         }//getting zeros coefficients
-        public static void logPath(List<Tuple<int,int>> path)
+        public void logPath(List<Tuple<int,int>> path)
         {
             lastStep = path;
         }//logging path
-        public static void AddInfinity(Matrix m)
+        public void AddInfinity(Matrix m)
         {
             List<bool> infRow = new List<bool>();// lists of rows and columns that contain infinity
             List<bool> infColumn = new List<bool>();
@@ -797,7 +797,7 @@ namespace Novaya_Pochta_.NET
                 }
             }
         }//find and add infinity after crossing out an column and row
-        public static List<Tuple<int, int>> findBestZeros(Matrix m)
+        public List<Tuple<int, int>> findBestZeros(Matrix m)
         {
             // list of zero elements coordinates
             List<Tuple<int, int>> zeros = new List<Tuple<int, int>>();
@@ -832,7 +832,7 @@ namespace Novaya_Pochta_.NET
             return zeros;
         }//finding zeros with best coeficients
 
-        public static int CalcCost(List<Tuple<int, int>> source)// calculate value of the path
+        public int CalcCost(List<Tuple<int, int>> source)// calculate value of the path
         {
             int result = 0;
             foreach(Tuple<int, int> tuple in source)
@@ -841,7 +841,7 @@ namespace Novaya_Pochta_.NET
             }
             return result;
         }
-        public static void candidateSolution(List<Tuple<int, int>> aWay)
+        public void candidateSolution(List<Tuple<int, int>> aWay)
         {
             int curCost = CalcCost(aWay);
             if(record < curCost)
@@ -852,7 +852,7 @@ namespace Novaya_Pochta_.NET
             path = aWay;
         }//validating solution
 
-        public static void handleMatrix(Matrix m, List<Tuple<int, int>> way, int bottomlimit)
+        public void handleMatrix(Matrix m, List<Tuple<int, int>> way, int bottomlimit)
         {
             if(DeathClock >= 500)
             {

@@ -389,7 +389,8 @@ namespace Novaya_Pochta_.NET
                     Destination = "Warehouse",
                     Approach = mytime.ToLongTimeString()
                 });
-                var result = Mathematics.GetRoute(request);
+                Mathematics solver = new Mathematics();
+                var result = solver.GetRoute(request);
                 result.Tooltips.Add("\n" + mytime.ToLongTimeString());
                 for (int i = 0; i < result.distanses.Count; i++){
                     int time = result.distanses[i] / speed;

@@ -44,7 +44,7 @@ namespace Novaya_Pochta_.NET
         {
             GoogleMapProvider.Instance.ApiKey = "AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";
         }
-        public static void MainOld()
+        /*public static void MainOld()
         {
             SetApiKey();
             LoadAdresses();
@@ -80,7 +80,7 @@ namespace Novaya_Pochta_.NET
             Application.EnableVisualStyles();
 
             Application.Run(myForm);
-        }
+        }*/
         [STAThread]
         static void Main(string[] args)
         {
