@@ -17,20 +17,20 @@ using System.Xml;
 
 namespace Novaya_Pochta_.NET
 {
-    public partial class Interface : Form
-    {
-        List<PointLatLng> RouteList = new List<PointLatLng>();
-        int bikecounter = 0;
-        int carcounter = 0;
-        public List<List<LandPoint>> Car { get; set; } = new List<List<LandPoint>>();
-        public List<List<LandPoint>> Bike { get; set; } = new List<List<LandPoint>>();
-        //List<List<Tuple<PointLatLng, string, string>>> Bike = new List<List<Tuple<PointLatLng, string, string>>>();
-        GMapOverlay CarOverlay = new GMapOverlay("CarOverlay");
-        GMapOverlay BikeOverlay = new GMapOverlay("BikeOverlay");
-        public Interface()
+    public partial class Nova_pochta : Form//this form is user interface
+    {       
+        int stepcounter = 0;//all this 8 fields are required for proper demonstration of program results
+        int routecounter = 0;
+        int allroutescounter = 0;
+        public List<List<LandPoint>> CurrentSteps { get; set; } = new List<List<LandPoint>>();
+        public List<DelivererRoute> CurrentRoutes { get; set; } = new List<DelivererRoute>();
+        public List<Tuple<List<DelivererRoute>, string>> AllRoutes { get; set; } = new List<Tuple<List<DelivererRoute>, string>>();
+        GMapOverlay StepOverlay = new GMapOverlay("StepOverlay");
+        GMapOverlay RouteOverlay = new GMapOverlay("RouteOverlay");
+        public Nova_pochta()
         {
             InitializeComponent();
-            //LandPoint.ReadLandPointFromFile("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/DemoAdressList.txt");
+            
         }
 
         private void gMapControl1_Load(object sender, EventArgs e)
@@ -60,11 +60,10 @@ namespace Novaya_Pochta_.NET
             gmap.RoutesEnabled = true;
             // Скрытие внешней сетки карты
             gmap.ShowTileGridLines = false;
-            // При загрузке 10-кратное увеличение
+            // При загрузке 15-кратное увеличение
             gmap.Zoom = 15;
             gmap.ShowCenter = false;
-            // Изменение размеров
-            // gmap.Dock = DockStyle.Fill;
+            
 
             // Чья карта используется
 
@@ -72,213 +71,182 @@ namespace Novaya_Pochta_.NET
             gmap.Position = new GMap.NET.PointLatLng(49.948022, 35.931451);
             gmap.SetPositionByKeywords("WWWJ+XC Люботин, Харьковская область");
             GMarkerGoogle gMarker = new GMarkerGoogle(gmap.Position, GMarkerGoogleType.arrow);
-            CarOverlay.Markers.Add(gMarker);
+            StepOverlay.Markers.Add(gMarker);//shows you current start position
 
-            /*StreamReader bikereader = new StreamReader("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/BikeDemo.txt");
-            while(true)
-            {
-                List<Tuple<PointLatLng, string, string>> temp = new List<Tuple<PointLatLng, string, string>>();
-
-                while(true)
-                {
-                    string number = bikereader.ReadLine();
-                    string adress = bikereader.ReadLine();
-                    string time = bikereader.ReadLine();
-                    temp.Add(new Tuple<PointLatLng, string, string>(LandPoint.GetCoordinates(adress), number, time));
-                    if(adress == "Warehouse")
-                    {
-                        break;
-                    }
-                }
-                Bike.Add(temp);
-                if (bikereader.EndOfStream)
-                {
-                    break;
-                }
-                
-            }
-            bikereader.Close();
-            /*StreamReader carreader = new StreamReader("C:/Users/Andrey/source/repos/Novaya_Pochta_.NET/Novaya_Pochta_.NET/DemoCar.txt");
-            while(true)
-            {
-                List<Tuple<PointLatLng, string, string>> temp = new List<Tuple<PointLatLng, string, string>>();
-
-                while (true)
-                {
-                    string number = carreader.ReadLine();
-                    string adress = carreader.ReadLine();
-                    string time = carreader.ReadLine();
-                    temp.Add(new Tuple<PointLatLng, string, string>(LandPoint.GetCoordinates(adress), number, time));
-                    if (adress == "Warehouse")
-                    {
-                        break;
-                    }
-                }
-                Car.Add(temp);
-                if (carreader.EndOfStream)
-                {
-                    break;
-                }
-                
-            }
-            carreader.Close();
             
-            List<PointLatLng> testroute = new List<PointLatLng>();
-            for(int i = 0; i < Car[0].Count; i++)
-            {
-                testroute.Add(Car[0][i].Item1);
-            }
-            ///////////////////////////////////////////////////trying to make an url request
-            string origin = "";
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-            foreach (PointLatLng point in testroute)
-            {
-
-                string lat = point.Lat.ToString();
-                string lng = point.Lng.ToString();
-                origin += lat + ',' + lng;
-                if(point != testroute.Last())
-                {
-                    origin += '|';
-                }
-            }
-            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RUS");
-            //Console.WriteLine(origin);
-            origin = "Slobozhanska 35, Lyubotin, Ukraine+ON|Slobozhanska 51, Lyubotin, Ukraine+ON|Depovska 117, Lyubotin, Ukraine+ON|Likarnyana 21, Lyubotin, Ukraine+ON";
-            string url = @"https://maps.googleapis.com/maps/api/distancematrix/xml?units=metric&origins=" + origin + " &destinations=" + origin + "&key=AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";//нужно попробовать координаты точных адресов, а не взятых наобум
-            //string url = @"https://maps.googleapis.com/maps/api/distancematrix/xml?units=metric&origins=40.6655101,-73.89188969999998&destinations=40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.659569%2C-73.933783%7C40.729029%2C-73.851524%7C40.6860072%2C-73.6334271%7C40.598566%2C-73.7527626%7C40.659569%2C-73.933783%7C40.729029%2C-73.851524%7C40.6860072%2C-73.6334271%7C40.598566%2C-73.7527626&key=AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            //StreamReader sreader = new StreamReader(dataStream);
-            //string responsereader = sreader.ReadToEnd();
-            //response.Close();
-
-            XmlDocument xmldoc = new XmlDocument();
-            xmldoc.Load(dataStream);
-            xmldoc.Save("TestResponce");
-            ///////////////////////////////////////////////////
-            /*var test = GoogleMapProvider.Instance.GetRoadsRoute(testroute, false);
-            
-            
-            PointLatLng start = new PointLatLng(49.946328, 35.927963);
-            PointLatLng end = new PointLatLng(49.958404, 35.910537);
-            
-            //routeOverlay.Routes.Add(r);
-            foreach(PointLatLng dot in test.Points)
-            {
-                Console.WriteLine(dot);
-            }
-            GMapRoute Denis = new GMapRoute(test.Points, "first");*/
-
-            //markersOverlay.Routes.Add(Denis);
             GMapOverlay markersOverlay = new GMapOverlay("markers");
-            gmap.Overlays.Add(CarOverlay);
-            gmap.Overlays.Add(BikeOverlay);
+            gmap.Overlays.Add(StepOverlay);
+            gmap.Overlays.Add(RouteOverlay);
             gmap.Overlays.Add(markersOverlay);
         }
 
-        private void NextRoute_Click(object sender, EventArgs e)
+        private void Next_step_click(object sender, EventArgs e)//maintains by - step route illustration
         {
             
-            if(bikecounter == Bike.Count)
+            if(stepcounter == CurrentSteps.Count)
             {
-                BikeOverlay.Clear();
-                bikecounter = 0;
+                RouteOverlay.Clear();
+                stepcounter = 0;
                 return;
             }
-            BikeOverlay.Clear();
-            /*var temproute = GoogleMapProvider.Instance.GetRoute(LandPoint.GetCoordinates("Warehouse"), Bike[bikecounter][0].Item1, false, true, 10);
-            GMapRoute mapRoute = new GMapRoute(temproute.Points, bikecounter.ToString())
-            {
-                Stroke = new Pen(Color.Red, 3)
-            };
-            routeOverlay.Routes.Add(mapRoute);
-            GMarkerGoogle tempmarker = new GMarkerGoogle(LandPoint.GetCoordinates("Warehouse"), GMarkerGoogleType.red);
-            routeOverlay.Markers.Add(tempmarker);
-            tempmarker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(tempmarker);
-            tempmarker.ToolTipText = Bike[bikecounter][Bike[bikecounter].Count - 1].Item3;
-            //System.Threading.Thread.Sleep(100);
-            */
-            for (int i = 1; i < Bike[bikecounter].Count; i++)
+            RouteOverlay.Clear();
+            
+            for (int i = 1; i < CurrentSteps[stepcounter].Count; i++)
             {
                 
-                var route = GoogleMapProvider.Instance.GetRoute(Bike[bikecounter][i - 1].coordinates, Bike[bikecounter][i].coordinates, false, true, 10);
+                var route = GoogleMapProvider.Instance.GetRoute(CurrentSteps[stepcounter][i - 1].coordinates, CurrentSteps[stepcounter][i].coordinates, false, true, 10);
                 GMapRoute gMapRoute = new GMapRoute(route.Points, i.ToString())
                 {
-                    Stroke = new Pen(Color.Red, 3)
+                    Stroke = new Pen(Color.Green, 3)
                 };
-                GMarkerGoogle temp = new GMarkerGoogle(Bike[bikecounter][i-1].coordinates, GMarkerGoogleType.red);
+                GMarkerGoogle temp = new GMarkerGoogle(CurrentSteps[stepcounter][i-1].coordinates, GMarkerGoogleType.green);
                 temp.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(temp);
-                temp.ToolTipText = Bike[bikecounter][i-1].adress;
-                GMarkerGoogle temp1 = new GMarkerGoogle(Bike[bikecounter][i].coordinates, GMarkerGoogleType.green);
+                
+                GMarkerGoogle temp1 = new GMarkerGoogle(CurrentSteps[stepcounter][i].coordinates, GMarkerGoogleType.arrow);
                 temp1.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(temp1);
-                temp1.ToolTipText = Bike[bikecounter][i].adress;
-                BikeOverlay.Routes.Add(gMapRoute);
-                BikeOverlay.Markers.Add(temp);
-                BikeOverlay.Markers.Add(temp1);
-                //System.Threading.Thread.Sleep(100);
+                
+                RouteOverlay.Routes.Add(gMapRoute);
+                RouteOverlay.Markers.Add(temp);
+                RouteOverlay.Markers.Add(temp1);
+                
             }
-            bikecounter++;
+            stepcounter++;
         }
-        private void BuildRoute(GMapRoute route, GMarkerGoogle marker)
+        private void BuildRoute(GMapRoute route, GMarkerGoogle marker)//simply shows a route
         {
-            //GMapOverlay templay = new GMapOverlay();
-            CarOverlay.Routes.Add(route);
-            CarOverlay.Markers.Add(marker);
             
-            //gmap.Overlays.Add(templay);
-            //System.Threading.Thread.Sleep(500);
+            StepOverlay.Routes.Add(route);
+            StepOverlay.Markers.Add(marker);
+                       
         }
-        private void NextCarRoute_Click(object sender, EventArgs e)
+        private void Next_route_click(object sender, EventArgs e)//maintain switching between routes
         {
-            if (carcounter == Car.Count)
+            RouteOverlay.Clear();
+            if (routecounter == CurrentRoutes.Count)
             {
-                CarOverlay.Clear();
-                carcounter = 0;
+                StepOverlay.Clear();
+                CurrentSteps.Clear();
+                stepcounter = 0;
+                routecounter = 0;
                 return;
             }
-            CarOverlay.Clear();
-            Bike.Clear();
-            for(int i = 0; i < Car[carcounter].Count - 1; i++)
+            StepOverlay.Clear();
+            CurrentSteps.Clear();
+            stepcounter = 0;
+            for(int i = 0; i < CurrentRoutes[routecounter].route.Count - 1; i++)
             {
                 List<LandPoint> temp = new List<LandPoint>();
-                temp.Add(Car[carcounter][i]);
-                temp.Add(Car[carcounter][i+1]);
-                Bike.Add(temp);
+                temp.Add(CurrentRoutes[routecounter].route[i]);
+                temp.Add(CurrentRoutes[routecounter].route[i+1]);
+                CurrentSteps.Add(temp);
             }
-            /*var temproute = GoogleMapProvider.Instance.GetRoute(LandPoint.GetCoordinates("Warehouse"), Car[carcounter][0].coordinates, false, false, 10);
-            GMapRoute mapRoute = new GMapRoute(temproute.Points, carcounter.ToString())
+                       
+            for (int i = 1; i < CurrentRoutes[routecounter].route.Count; i++)
             {
-                Stroke = new Pen(Color.Blue, 3)
-            };
-            routeOverlay.Routes.Add(mapRoute);
-            GMarkerGoogle tempmarker = new GMarkerGoogle(LandPoint.GetCoordinates("Warehouse"), GMarkerGoogleType.blue);
-            tempmarker.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(tempmarker);
-            tempmarker.ToolTipText = Car[carcounter][Car[carcounter].Count-1].adress;
-            //routeOverlay.Markers.Add(tempmarker);
-            BuildRoute(mapRoute, tempmarker);*/
-           
-            for (int i = 1; i < Car[carcounter].Count; i++)
-            {
-                var route = GoogleMapProvider.Instance.GetRoute(Car[carcounter][i - 1].coordinates, Car[carcounter][i].coordinates, false, true, 10);
+                var route = GoogleMapProvider.Instance.GetRoute(CurrentRoutes[routecounter].route[i - 1].coordinates, CurrentRoutes[routecounter].route[i].coordinates, false, true, 10);
                 GMapRoute gMapRoute = new GMapRoute(route.Points, i.ToString())
                 {
                     Stroke = new Pen(Color.Blue, 3)
                 };
-                GMarkerGoogle temp = new GMarkerGoogle(Car[carcounter][i - 1].coordinates, GMarkerGoogleType.blue);
+                GMarkerGoogle temp = new GMarkerGoogle(CurrentRoutes[routecounter].route[i - 1].coordinates, GMarkerGoogleType.blue);
                 temp.ToolTip = new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(temp);
-                temp.ToolTipText = Car[carcounter][i-1].adress;
+                temp.ToolTipText = CurrentRoutes[routecounter].route[i-1].adress + CurrentRoutes[routecounter].Tooltips[i-1];
                 BuildRoute(gMapRoute, temp);
                 
                 
             }
-            carcounter++;
+            routecounter++;
+        }
+        
+
+        private void NextCurier_Click(object sender, EventArgs e)//maintain switching between routes
+        {
+            StepOverlay.Clear();
+            RouteOverlay.Clear();
+            CurrentRoutes.Clear();
+            CurrentSteps.Clear();
+            stepcounter = 0;
+            routecounter = 0;
+            if(allroutescounter == AllRoutes.Count)
+            {
+                allroutescounter = 0;
+                curier_text.Text = "Nothing selected";
+                return;
+            }
+            curier_text.Text = AllRoutes[allroutescounter].Item2;
+            CurrentRoutes = new List<DelivererRoute>(AllRoutes[allroutescounter].Item1);
+            allroutescounter++;
         }
 
-        private void NextCarRoute_KeyDown(object sender, KeyEventArgs e)
+        private void Select_source_Click(object sender, EventArgs e)//maintains initiating of math calculations
         {
             
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var filePath = openFileDialog1.FileName;
+                    Process(filePath);
+                }
+                catch (System.Security.SecurityException ex)//if you can't open a file because of security
+                {
+                    StatusLabel.Text = $"Security error. \n\nError message: {ex.Message}\n\n" + $"Details:\n\n{ex.StackTrace}";
+                    StatusLabel.ForeColor = Color.Red;
+                }
+                catch(Exception error)//if some other issues happen
+                {
+                    StatusLabel.Text = $"An error happened. Error message: {error.Message}";
+                    StatusLabel.ForeColor = Color.Red;
+                }
+            }
         }
+        public async void ProcessAsync(string filename)
+        {
+            await Task.Run(() => Process(filename));
+        }
+        public void Process(string filename)
+        {
+            StatusLabel.Text = "";
+
+            progressStrip.ProgressBar.Value = 0;
+            
+            StatusLabel.ForeColor = Color.Black;
+            Deliverer warehouse = new Deliverer(10000, 0, 0, 0);//adding and filling the warehouse
+            warehouse.RandomFill();
+            //warehouse.FileFill(filename);
+            Deliverer bike_courier = new Deliverer(50, 100, 5, 0);//adding couriers
+            Deliverer car_courier = new Deliverer(500, 500, 12, 0);
+            Deliverer lorry_courier = new Deliverer(1500, 2000, 15, 0);
+            bike_courier.TransferWithCap(warehouse, 30, 5);//transfering them all packages they can carry
+            car_courier.TransferWithCap(warehouse, 250, 30);
+            lorry_courier.TransferWithCap(warehouse, 1000, 300);
+            StatusLabel.Text = "Data loaded succesfuly";//showing that initiation is done
+
+            progressStrip.ProgressBar.Value = 10;
+
+            bike_courier.GroupMyBoxes();
+            bike_courier.BuildRoutes("Bike");//building routes for bike
+
+            StatusLabel.Text = "Calculations finished for bike curier";
+            progressStrip.ProgressBar.Value = 40;
+
+            car_courier.GroupMyBoxes();
+            car_courier.BuildRoutes("Car");//building routes for car
+            StatusLabel.Text = "Calculations finished for car curier";
+            progressStrip.ProgressBar.Value = 70;
+
+
+            lorry_courier.GroupMyBoxes();
+            lorry_courier.BuildRoutes("Lorry");//building routes for lorry
+            StatusLabel.Text = "Calculations finished for lorry curier";
+            progressStrip.ProgressBar.Value = 100;
+
+            AllRoutes.Add(new Tuple<List<DelivererRoute>, string>(bike_courier.Deliverer_routes, "Bike courier"));//showing them
+            AllRoutes.Add(new Tuple<List<DelivererRoute>, string>(car_courier.Deliverer_routes, "Car courier"));
+            AllRoutes.Add(new Tuple<List<DelivererRoute>, string>(lorry_courier.Deliverer_routes, "Lorry courier"));
+            StatusLabel.Text = "All calculations finished successfully";
+            warehouse.LoadOutToFile("Warehouse");//all rest in the warehouse is loaded out to file
+        }
+
     }
 }

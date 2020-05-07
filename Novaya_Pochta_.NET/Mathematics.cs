@@ -1,6 +1,7 @@
 ﻿using GMap.NET.MapProviders;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,77 +13,121 @@ namespace Novaya_Pochta_.NET
 {
     class Mathematics
     {
-        private static int inf1 = 100000;
-        private static int inf2 = 200000;
-        private static int DeathClock = 0;
-        private static int record = inf1;
-        private static List<Tuple<int, int>> path = new List<Tuple<int, int>>();
-        private static List<int> solution = new List<int>();
-        private static List<Tuple<int, int>> lastStep = new List<Tuple<int, int>>();
-        private static Matrix _sourceMatrix;
-        public static List<LandPoint> GetRoute(List<LandPoint> fullroute)
+        private static int inf1 = 100000;//first infinity value
+        private static int inf2 = 200000;//second infinity value
+        private static int DeathClock = 0;//to avoid stack overflow
+        private static int record = inf1;//the best path length
+        private static List<Tuple<int, int>> path = new List<Tuple<int, int>>();//result of Little algorythm
+        private static List<int> solution = new List<int>();//another representation of result
+        private static List<Tuple<int, int>> lastStep = new List<Tuple<int, int>>();//required in little algorythm
+        private static Matrix _sourceMatrix;//shared distance matrix
+        public static DelivererRoute GetRoute(List<LandPoint> fullroute)//basic func to get route throw Little algorythm
         {
             List<LandPoint> ToMatrix = new List<LandPoint>(fullroute);
-            ToMatrix.RemoveAt(ToMatrix.Count - 1);
+            ToMatrix.RemoveAt(ToMatrix.Count - 1);//because we pass a loop route
             
             List<LandPoint> result = new List<LandPoint>();
-            int[,] matrix = GetDistanceMatrix(ToMatrix);
-            //matrix = MatrixReduction(matrix);
-            InitLittle(new Matrix(matrix), 1000000);
-            SolveLittle();
-            foreach(var i in solution)
+            int[,] matrix = GetBigDistanseMatrix(ToMatrix);//getting distance matrix
+            var little = new Stopwatch();//to count work time (in debugging)
+            little.Start();
+            InitLittle(new Matrix(matrix), 10000000);//initiating Little algorythm
+            List<int> distances = SolveLittle();//solving it
+            foreach(var i in solution)//recodering the path
             {
                 result.Add(fullroute[i]);
             }
-            return result;
+            
+            little.Stop();
+            
+            return new DelivererRoute(result, distances);//returning a vay for courier
         }
-        public static List<LandPoint> GetGenetic(List<LandPoint> fullroute)
+        public static DelivererRoute GetGenetic(List<LandPoint> fullroute)//almost the same, but using genetic algorythm
         {
             List<LandPoint> ToMatrix = new List<LandPoint>(fullroute);
             ToMatrix.RemoveAt(ToMatrix.Count - 1);
             List<LandPoint> ToAlgorythm = new List<LandPoint>(ToMatrix);
             ToAlgorythm.Remove(ToAlgorythm.First());
-            int bestlength = 1000000;
-            List<LandPoint> result = new List<LandPoint>();
-            int[,] matrix = GetDistanceMatrix(ToMatrix);
-            //matrix = MatrixReduction(matrix);
-            //result = HungaryAlgorythm(matrix, ToMatrix);
-            for (int i = 0; i < 10; i++)
+            
+            int[,] matrix = GetBigDistanseMatrix(ToMatrix);
+            
+            var gen = new Stopwatch();
+            gen.Start();
+            var result = GetRoute(matrix, ToAlgorythm, fullroute.First(), fullroute.First());
+            gen.Stop();
+            return result;
+        }
+
+        public static int[,] GetBigDistanseMatrix(List<LandPoint> points)// we faced a limit of 100 elements per response
+        {//and this method expands it up to 400 elements
+            if(points.Count <= 10)
             {
-                Tuple<List<LandPoint>, int> candidate = GetRoute(matrix, ToAlgorythm, fullroute.First(), fullroute.First());
-                if(i == 0)
+                return GetDistanceMatrix(points, points);
+            }
+            List<LandPoint> first_part = new List<LandPoint>();
+            List<LandPoint> second_part = new List<LandPoint>();
+            for(int i = 0; i < points.Count; i++)//just devide your matrix on 4 blocks
+            {//and than connect them in one
+                if(i < 10)
                 {
-                    bestlength = candidate.Item2;
-                    result = candidate.Item1;
+                    first_part.Add(points[i]);
                 }
                 else
                 {
-                    if(candidate.Item2 < bestlength)
+                    second_part.Add(points[i]);
+                }
+            }
+            int[,] top_left = GetDistanceMatrix(first_part, first_part);
+            int[,] top_right = GetDistanceMatrix(first_part, second_part);
+            int[,] down_left = GetDistanceMatrix(second_part, first_part);
+            int[,] down_right = GetDistanceMatrix(second_part, second_part);
+            int[,] result = new int[points.Count, points.Count];
+            for(int i = 0; i < points.Count; i++)
+            {
+                for(int j = 0; j < points.Count; j++)
+                {
+                    if(i < 10 && j < 10)
                     {
-                        bestlength = candidate.Item2;
-                        result = candidate.Item1;
+                        result[i, j] = top_left[i, j];
+                    }else if(i < 10 && j >= 10)
+                    {
+                        result[i, j] = top_right[i, j - 10];
+                    }else if(i >= 10 && j < 10)
+                    {
+                        result[i, j] = down_left[i - 10, j];
+                    }
+                    else
+                    {
+                        result[i, j] = down_right[i - 10, j - 10];
                     }
                 }
             }
             return result;
+
         }
-        public static int[,] GetDistanceMatrix(List<LandPoint> points)
+        public static int[,] GetDistanceMatrix(List<LandPoint> origins, List<LandPoint> destinations)// using DistanseMatrixApi we can request a distanse matrix
         {
-            int[,] matrix = new int[points.Count, points.Count];
+            int[,] matrix = new int[origins.Count, destinations.Count];
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             string origin = "";
-            //string origin = "Slobozhanska St, 35, Lyubotin, Ukraine+ON|Slobozhanska St, 51, Lyubotin, Ukraine+ON|Шевченка вул. 15, Lyubotyn, Харківська, 62433+ON|Provulok Sanitarnyy, 6, Liubotyn, Kharkivs'ka oblast, 62434+ON|Klavdii Shulzhenko St, 45, Liubotyn, Kharkivs'ka oblast, 62435+ON|Fisaka St, 4, Lybotin, Ukraine+ON|Academician Amosov St, 45, Lyubotin, Ukraine+ON|Gaidar St, 47, Lyubotin, Ukraine+ON|Chernyshevsky St, 13, Lyubotin, Ukraine+ON|Guards St, 24, Lyubotin, Ukraine+ON";
-            foreach(LandPoint point in points)
-            {
-                //string lat = point.coordinates.Lat.ToString();
-                //string lng = point.coordinates.Lng.ToString();
+            
+            foreach(LandPoint point in origins)
+            {              
                 origin += point.adress + "+ON";
-                if (point != points.Last())
+                if (point != origins.Last())
                 {
                     origin += '|';
                 }
             }
-            string url = @"https://maps.googleapis.com/maps/api/distancematrix/xml?units=metric&origins=" + origin + " &destinations=" + origin + "&key=" + GoogleMapProvider.Instance.ApiKey;//нужно попробовать координаты точных адресов, а не взятых наобум
+            string destination = "";
+            foreach (LandPoint point in destinations)
+            {                
+                destination += point.adress + "+ON";
+                if (point != destinations.Last())
+                {
+                    destination += '|';
+                }
+            }
+            string url = @"https://maps.googleapis.com/maps/api/distancematrix/xml?units=metric&origins=" + origin + " &destinations=" + destination + "&key=" + GoogleMapProvider.Instance.ApiKey;//нужно попробовать координаты точных адресов, а не взятых наобум
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             WebResponse response = request.GetResponse();
             if(response == null)
@@ -92,7 +137,7 @@ namespace Novaya_Pochta_.NET
             Stream dataStream = response.GetResponseStream();            
             XmlDocument xmldoc = new XmlDocument();
             xmldoc.Load(dataStream);
-            xmldoc.Save("MatrixResponse");
+            //xmldoc.Save("MatrixResponse");
             XmlElement xRoot = xmldoc.DocumentElement;
             int i = 0;
             int j = 0;
@@ -108,81 +153,19 @@ namespace Novaya_Pochta_.NET
                             {
                                 matrix[i, j] = System.Convert.ToInt32(node.FirstChild.InnerText);
                                 j++;
-                                //Console.Write(node.FirstChild.InnerText + "   ");
+                                
                             }
                         }
                     }
                     i++;
                     j = 0;
-                    //Console.WriteLine();
+                    
                 }
             }
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
             return matrix;
         }
-
-        public static int [,] MatrixReduction(int [,] Matrix)
-        {
-            for(int i = 0; i < Matrix.GetLength(1); i++)
-            {
-                Matrix[i, i] = inf1;
-            }
-            for(int i = 0; i < Matrix.GetLength(1); i++)
-            {
-                int min = inf1;
-                for(int j = 0; j < Matrix.GetLength(0); j++)
-                {
-                    if(Matrix[i,j] < min)
-                    {
-                        min = Matrix[i, j];
-                    }
-                }
-                for(int j = 0; j < Matrix.GetLength(0); j++)
-                {
-                    Matrix[i, j] -= min;
-                }
-            }
-            for (int i = 0; i < Matrix.GetLength(1); i++)
-            {
-                int min = 90000;
-                for (int j = 0; j < Matrix.GetLength(0); j++)
-                {
-                    if (Matrix[j, i] < min)
-                    {
-                        min = Matrix[j, i];
-                    }
-                }
-                for (int j = 0; j < Matrix.GetLength(0); j++)
-                {
-                    Matrix[j, i] -= min;
-                }
-            }
-
-            return Matrix;
-        }
-        public static bool TryToGetSolution(int [,] matrix)
-        {
-            int combinations = 1;
-            int count = matrix.GetLength(0);
-            for(int i = 0; i < count; i++)
-            {
-                int zeros = 0;
-                for(int j = 0; j < count; j++)
-                {
-                    if(matrix[i, j] == 0)
-                    {
-                        zeros += 1;
-                    }
-                }
-                combinations *= zeros;
-            }
-            if(combinations == 0)
-            {
-                return false;
-            }
-
-            return false;
-        }
+        
         public static List<LandPoint> HungaryAlgorythm(int [,] Matrix, List<LandPoint> destinations)
         {
             /*int[,] matrix = new int[Matrix.GetLength(0), Matrix.GetLength(1)];
@@ -425,10 +408,11 @@ namespace Novaya_Pochta_.NET
             }
             result.Add(destinations[ans[1]- 1]);
             return result;
-        }
-        public static Tuple<List<LandPoint>, int> GetRoute(int [,] Matrix, List<LandPoint> original, LandPoint start, LandPoint last)
+        }//my attemt to create hungarian algorythm; currently works bad
+        public static DelivererRoute GetRoute(int [,] Matrix, List<LandPoint> original, LandPoint start, LandPoint last)
         {
             List<LandPoint> points = new List<LandPoint>(original);
+            List<int> destinations = new List<int>();
             if(start != last)
             {
                 throw new Exception("This is not a loop route");
@@ -442,7 +426,11 @@ namespace Novaya_Pochta_.NET
                 points.Insert(0, start);
                 points.Add(last);
                 int length = Matrix[0, 1] * 2;
-                return new Tuple<List<LandPoint>, int>(points, length);
+                List<int> temp = new List<int>();
+                
+                temp.Add(Matrix[0, 1]);
+                temp.Add(Matrix[0, 1]);
+                return new DelivererRoute(points, temp);
             }
             int deadline = 0;
             int cases = 50;
@@ -615,8 +603,12 @@ namespace Novaya_Pochta_.NET
             {
                 result.Add(points[BestWay[i]]);
             }
-            return new Tuple<List<LandPoint>, int>(result, BestWay[end]);
-        }
+            for(int i = 1; i <= original.Count; i++)
+            {
+                destinations.Add(Matrix[BestWay[i - 1], i]);
+            }
+            return new DelivererRoute(result, destinations);
+        }//genetic search of the path
         public static void InitLittle(Matrix m, int record)
         {
             inf1 = 0;
@@ -640,11 +632,12 @@ namespace Novaya_Pochta_.NET
                 _sourceMatrix.matrix[i, i] = inf1;
             }
             Mathematics.record = record;
-        }
+        }//initiating Little algorythm
 
-        public static void SolveLittle()
+        public static List<int> SolveLittle()
         {
             DeathClock = 0;
+            List<int> distances = new List<int>();
             try
             {
                 handleMatrix(_sourceMatrix, new List<Tuple<int, int>>(), 0);//solution
@@ -653,15 +646,21 @@ namespace Novaya_Pochta_.NET
             {
                 //recording solution
                 //adding zero as begin
+                
                 solution.Add(0);
                 while (path.Count > 0)
                 {
                     
                     foreach (var iter in path)
                     {
+                        if(iter.Item1 == iter.Item2)
+                        {
+                            throw new Exception("An loop happened in little solution");
+                        }
                         //if is present edge , coming out of current point, adding next one and removing edge
                         if (iter.Item1 == solution.Last())
                         {
+                            distances.Add(_sourceMatrix.matrix[iter.Item1, iter.Item2]);
                             solution.Add(iter.Item2);
                             path.Remove(iter);
                             break;
@@ -669,9 +668,10 @@ namespace Novaya_Pochta_.NET
                     }
                 }
             }
+            return distances;
             
-        }
-        public static int Reduction(Matrix m)
+        }//solving it
+        public static int Reduction(Matrix m)//matrix reduction
         {
             int ret = 0;// sum of all extracted values
             int count = m.matrix.GetLength(0);
@@ -752,11 +752,11 @@ namespace Novaya_Pochta_.NET
                 }
             }
             return rmin + cmin;
-        }
+        }//getting zeros coefficients
         public static void logPath(List<Tuple<int,int>> path)
         {
             lastStep = path;
-        }
+        }//logging path
         public static void AddInfinity(Matrix m)
         {
             List<bool> infRow = new List<bool>();// lists of rows and columns that contain infinity
@@ -796,7 +796,7 @@ namespace Novaya_Pochta_.NET
                     break;
                 }
             }
-        }
+        }//find and add infinity after crossing out an column and row
         public static List<Tuple<int, int>> findBestZeros(Matrix m)
         {
             // list of zero elements coordinates
@@ -830,7 +830,7 @@ namespace Novaya_Pochta_.NET
                 }
             }
             return zeros;
-        }
+        }//finding zeros with best coeficients
 
         public static int CalcCost(List<Tuple<int, int>> source)// calculate value of the path
         {
@@ -850,7 +850,7 @@ namespace Novaya_Pochta_.NET
             }
             record = curCost;
             path = aWay;
-        }
+        }//validating solution
 
         public static void handleMatrix(Matrix m, List<Tuple<int, int>> way, int bottomlimit)
         {
@@ -861,6 +861,7 @@ namespace Novaya_Pochta_.NET
             DeathClock++;
             if(m.matrix.GetLength(0) < 2)
             {
+                return;
                 throw new Exception("Logic error: matrix smaller than 2x2");
             }
             if(m.matrix.GetLength(0) == 2)
@@ -896,8 +897,8 @@ namespace Novaya_Pochta_.NET
             newMatrix.matrix[edge.Item1, edge.Item1] = inf1 + 1;// add infinity instead of edge
             handleMatrix(newMatrix, way, bottomlimit);
 
-
+            DeathClock--;
             
-        }
+        }//main recursive function
     }
 }

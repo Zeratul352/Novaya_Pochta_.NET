@@ -3,27 +3,27 @@
   <status>OK</status>
   <result>
     <type>street_address</type>
-    <formatted_address>Vulytsya Vesnyana, 8, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</formatted_address>
+    <formatted_address>Veterynarna Street, 4, Vovchans'k, Kharkivs'ka oblast, Ukraine, 62500</formatted_address>
     <address_component>
-      <long_name>8</long_name>
-      <short_name>8</short_name>
+      <long_name>4</long_name>
+      <short_name>4</short_name>
       <type>street_number</type>
     </address_component>
     <address_component>
-      <long_name>Vulytsya Vesnyana</long_name>
-      <short_name>Vulytsya Vesnyana</short_name>
+      <long_name>Veterynarna Street</long_name>
+      <short_name>Veterynarna Street</short_name>
       <type>route</type>
     </address_component>
     <address_component>
-      <long_name>Liubotyn</long_name>
-      <short_name>Liubotyn</short_name>
+      <long_name>Vovchans'k</long_name>
+      <short_name>Vovchans'k</short_name>
       <type>locality</type>
       <type>political</type>
     </address_component>
     <address_component>
-      <long_name>Lyubotyns'ka city council</long_name>
-      <short_name>Lyubotyns'ka city council</short_name>
-      <type>administrative_area_level_3</type>
+      <long_name>Vovchans'kyi district</long_name>
+      <short_name>Vovchans'kyi district</short_name>
+      <type>administrative_area_level_2</type>
       <type>political</type>
     </address_component>
     <address_component>
@@ -39,32 +39,27 @@
       <type>political</type>
     </address_component>
     <address_component>
-      <long_name>62435</long_name>
-      <short_name>62435</short_name>
+      <long_name>62500</long_name>
+      <short_name>62500</short_name>
       <type>postal_code</type>
     </address_component>
     <geometry>
       <location>
-        <lat>49.9488815</lat>
-        <lng>35.8983270</lng>
+        <lat>50.2857896</lat>
+        <lng>36.9591237</lng>
       </location>
-      <location_type>ROOFTOP</location_type>
+      <location_type>RANGE_INTERPOLATED</location_type>
       <viewport>
         <southwest>
-          <lat>49.9475325</lat>
-          <lng>35.8969780</lng>
+          <lat>50.2844406</lat>
+          <lng>36.9577747</lng>
         </southwest>
         <northeast>
-          <lat>49.9502305</lat>
-          <lng>35.8996760</lng>
+          <lat>50.2871386</lat>
+          <lng>36.9604727</lng>
         </northeast>
       </viewport>
     </geometry>
-    <partial_match>true</partial_match>
-    <place_id>ChIJ7TaiiAWaJ0ERikFYJlBmEMc</place_id>
-    <plus_code>
-      <global_code>8GXQWVXX+H8</global_code>
-      <compound_code>WVXX+H8 Lyubotyn, Kharkiv Oblast, Ukraine</compound_code>
-    </plus_code>
+    <place_id>EkVWZXRlcnluYXJuYSBTdHJlZXQsIDQsIFZvdmNoYW5zJ2ssIEtoYXJraXZzJ2thIG9ibGFzdCwgVWtyYWluZSwgNjI1MDAiGhIYChQKEgmdrPMM4PAmQRF8GsFppkXrQBAE</place_id>
   </result>
 </GeocodeResponse>

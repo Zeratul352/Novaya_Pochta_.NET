@@ -1,4 +1,5 @@
-﻿using GMap.NET;
+﻿using CsvHelper;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace Novaya_Pochta_.NET
         {
             List<LandPoint> landPoints = new List<LandPoint>();
             StreamReader reader = new StreamReader(path);
-            
+
             while (true)
             {
                 string adress, coordinates;
@@ -49,7 +50,7 @@ namespace Novaya_Pochta_.NET
                     reader.Close();
                     return;
                 }
-                
+
                 coordinates = reader.ReadLine();
                 string[] args = coordinates.Split(' ');
                 LandPoint temp = new LandPoint(count, count.ToString(), adress, Convert.ToDouble(args[0]), Convert.ToDouble(args[1]));
@@ -78,8 +79,8 @@ namespace Novaya_Pochta_.NET
                 xmldoc.Load(dataStream);
                 xmldoc.Save("GeocodeingResponse");
                 XmlElement xRoot = xmldoc.DocumentElement;
-                
-                if(xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lat") == null)
+
+                if (xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lat") == null)
                 {
                     continue;
                 }
@@ -98,29 +99,84 @@ namespace Novaya_Pochta_.NET
         }
         public static PointLatLng GetCoordinates(string adress)
         {
-            foreach(LandPoint current in Deliverer.Adresses)
+            foreach (LandPoint current in Deliverer.Adresses)
             {
-                if(adress == current.adress)
+                if (adress == current.adress)
                 {
                     return current.coordinates;
                 }
             }
             throw new Exception("Invalid adress: unable to get it coordinates");
         }
+
+        public static LandPoint SingleGeocode(string adress)
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+
+
+
+            if (adress == null || adress == "")
+            {
+
+                throw new Exception("Invalid geocode request");
+            }
+            string url = @"https://maps.googleapis.com/maps/api/geocode/xml?address=" + adress + "&key=" + GoogleMapProvider.Instance.ApiKey;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            XmlDocument xmldoc = new XmlDocument();
+            xmldoc.Load(dataStream);
+            xmldoc.Save("GeocodeingResponse");
+            XmlElement xRoot = xmldoc.DocumentElement;
+
+            if (xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lat") == null)
+            {
+                throw new Exception("No geocoding responce");
+            }
+            string lat = xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lat").InnerText;
+            string lng = xmldoc.SelectSingleNode("GeocodeResponse/result/geometry/location/lng").InnerText;
+            string place_id = xmldoc.SelectSingleNode("GeocodeResponse/result/place_id").InnerText;
+            adress = xmldoc.SelectSingleNode("GeocodeResponse/result/formatted_address").InnerText;
+            double latitude = double.Parse(lat);
+            double longitude = double.Parse(lng);
+            PointLatLng point = new PointLatLng(latitude, longitude);
+            LandPoint temp = new LandPoint(0, place_id, adress, point);
+            Deliverer.Adresses.Add(temp);
+
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
+            return temp;
+        }
     }
+    public class DelivererRoute// simple class to bond LandPoint and distances
+    {
+        public List<LandPoint> route { get; set; }
+        public List<int> distanses { get; set; }
+        public List<string> Tooltips { get; set; }
+
+        public DelivererRoute(List<LandPoint> way, List<int> dist)
+        {
+            route = way;
+            distanses = dist;
+            Tooltips = new List<string>();
+        }
+    }
+
     [Serializable]
     public class Deliverer
     {
-        public double capacity { get; set; }
-        public double salary { get; set; }
-        public double speed { get; set; }
-        public double volumecarrying { get; set; }
-        public int allowedroadtype { get; set; }
-        public List <Box> CarryingNow { get; set; }
-        public static List<LandPoint> Adresses { get; set; } = new List<LandPoint>();
-        public DateTime mytime { get; set; }
+        public double capacity { get; set; }// how many can take in backpack; littres
+        public double salary { get; set; }// how many costs one hour of work; grivnas
+        public int speed { get; set; }// speed; meters per seconds
+        public double volumecarrying { get; set; }// how many carries now
+        public int allowedroadtype { get; set; }//currently is not used because api with road type isn't free for use
+        public static LandPoint NovaPochta { get; set; }//location of warehouse
+        public List <Box> CarryingNow { get; set; }//all packages in the backpack
+        public static List<LandPoint> Adresses { get; set; } = new List<LandPoint>();//already known adresses; can be serialised
+        public List<DelivererRoute> Deliverer_routes { get; set; }// routes that deliverer will follow
+        public DateTime mytime { get; set; }// deliverer time
         public Deliverer() { }
-        public Deliverer(double cap, double sal, double sp, double carry)
+        public Deliverer(double cap, double sal, int sp, double carry)
         {
             capacity = cap;
             salary = sal;
@@ -128,6 +184,7 @@ namespace Novaya_Pochta_.NET
             volumecarrying = carry;
             CarryingNow = new List<Box>();
             mytime = new DateTime(2020, 2, 12, 9, 0, 0);
+            Deliverer_routes = new List<DelivererRoute>();
         }
         public void GroupMyBoxes()
         {
@@ -202,26 +259,35 @@ namespace Novaya_Pochta_.NET
             output.WriteLine("{0, 50} | {1}:{2}", "Warehouse", mytime.Hour, mytime.Minute);
             output.Close();
         }*/
-        public void FillBack(Deliverer donor)
+        private List<Box> FillBack()
         {
-            for(int i = donor.CarryingNow.Capacity - 1; i >= 0; i--)
+            double volume = 0;
+            List<Box> package = new List<Box>();
+            for(int i = CarryingNow.Count - 1; i >= 0; i--)
             {
-                if(volumecarrying + donor.CarryingNow[i].volume <= capacity)
+                if(volume + CarryingNow[i].volume <= capacity && package.Count <= 18)
                 {
-                    AddBox(donor.TakeBox(i));
+                    volume += CarryingNow[i].volume;
+                    package.Add(TakeBox(i));
                 }
             }
+            return package;
         }
-        public void FillFront(Deliverer donor)
+        private List<Box> FillFront()
         {
-            for(int i = 0; i < donor.CarryingNow.Capacity; i++)
+            double volume = 0;
+            List<Box> package = new List<Box>();
+            for(int i = 0; i < CarryingNow.Count; i++)
             {
-                if(volumecarrying + donor.CarryingNow[i].volume <= capacity)
+                if(volume + CarryingNow[i].volume <= capacity && package.Count <= 18)
                 {
-                    AddBox(donor.TakeBox(i));
+                    volume += CarryingNow[i].volume;
+                    package.Add(TakeBox(i));
+                    
                     i--;
                 }
             }
+            return package;
         }
         public void RandomFill()
         {
@@ -232,38 +298,57 @@ namespace Novaya_Pochta_.NET
             for(int i = 0; i < 50; i++)
             {
                 LandPoint adress = Adresses[Program.random.Next(Adresses.Count)];
-                double volume = Math.Round(Program.random.NextDouble() * 100);
-                double mass = Math.Round(Program.random.NextDouble() * 100);
+                double volume = Math.Round(Program.random.NextDouble() * 50);
+                double mass = Math.Round(Program.random.NextDouble() * 50);
                 Box newBox = new Box(volume, mass, i.ToString(), adress);
                 AddBox(newBox);
             }
            
 
         }
-        /*public void FileFill(string filename)
+        public void FileFill(string filename)
         {
             StreamReader reader = new StreamReader(filename);
-            int count = Convert.ToInt32(reader.ReadLine());
-            for(int i = 0; i < count; i++)
+            var args1 = reader.ReadLine().Split(';');
+            if((args1[0] != "Volume") || (args1[1] != "Weight") || (args1[2] != "Adress"))
             {
-                string vol;
-                string adr;
-                vol = reader.ReadLine();
-                double volume = Convert.ToDouble(vol);
-                adr = reader.ReadLine();
-                int id = 0;
-                for(int j = 0; j < Adresses.Capacity; j++)
+                reader.Close();
+                throw new Exception("Invalid source file");
+            }
+            int counter = 0;
+            while (true)
+            {
+                string Line = reader.ReadLine();
+                if(Line == null)
                 {
-                    if(Adresses[j].adress == adr)
+                    break;
+                }
+                string[] args = Line.Split(';');
+                
+                double volume = System.Convert.ToDouble(args[0]);
+                double weight = System.Convert.ToDouble(args[1]);
+                LandPoint location = new LandPoint();
+                bool flag = false;
+                foreach( LandPoint point in Adresses)
+                {//trying to find adress in already loaded
+                    if(point.adress == args[2])
                     {
-                        id = Adresses[j].id;
+                        flag = true;
+                        location = point;
                         break;
                     }
+
                 }
-                AddBox(new Box(volume, Convert.ToString(i + 1), id));
+                if (!flag)
+                {
+                    location = LandPoint.SingleGeocode(args[2]);
+                }
+                Box temp = new Box(volume, weight, counter.ToString(), location);
+                AddBox(temp);
+                counter++;
             }
             reader.Close();
-        }*/
+        }
         public void TransferWithCap(Deliverer source, double volume_cap, double mass_cap)
         {
             for(int i = 0; i < source.CarryingNow.Count; i++)
@@ -275,5 +360,116 @@ namespace Novaya_Pochta_.NET
                 }
             }
         }
+        public async void BuildRoutesAsync(string filename)
+        {
+            await Task.Run(() => BuildRoutes(filename));
+        }
+        public void BuildRoutes(string logfile_name)//build routes for all packages in backpack
+        {
+            List<FileLine> output = new List<FileLine>();
+            
+            while(CarryingNow.Count != 0)
+            {
+                //FileLine fileLine = new FileLine();
+                List<Box> load = FillFront();
+                if(load.Count == 0)
+                {
+                    throw new Exception("Logical error in the algorythm happened: there are boxes that courier can't handle");
+                }
+                List<LandPoint> request = new List<LandPoint>();
+                request.Add(NovaPochta);
+                foreach(Box box in load)
+                {
+                    request.Add(box.adress);
+                }
+                request.Add(NovaPochta);
+                output.Add(new FileLine
+                {
+                    Packages = "",
+                    Destination = "Warehouse",
+                    Approach = mytime.ToLongTimeString()
+                });
+                var result = Mathematics.GetRoute(request);
+                result.Tooltips.Add("\n" + mytime.ToLongTimeString());
+                for (int i = 0; i < result.distanses.Count; i++){
+                    int time = result.distanses[i] / speed;
+                    mytime = mytime.AddSeconds(time);
+                    if(i < load.Count)
+                    {
+                        mytime = mytime.AddMinutes(load[i].count * (Program.random.Next(10) + 5));//some time to give out boxes
+                    }
+                    else
+                    {
+                        mytime = mytime.AddMinutes(15);//rest in warehouse
+                    }
+                    string tooltip = "\n";
+                    tooltip += mytime.ToLongTimeString() + "\n";
+                    if(i < load.Count)
+                    {
+                        output.Add(new FileLine
+                        {
+                            Packages = load[i].number,
+                            Destination = load[i].adress.adress,
+                            Approach = mytime.ToLongTimeString()
+                        });
+                        tooltip += load[i].number;//boxes that were delivered
+                        result.Tooltips.Add(tooltip);
+                    }
+                    else
+                    {
+                        output.Add(new FileLine
+                        {
+                            Packages = "",
+                            Destination = "Warehouse",
+                            Approach = mytime.ToLongTimeString()
+                        });
+                        tooltip += "Warehouse";
+                        result.Tooltips.Add(tooltip);
+                        result.Tooltips[0] += '\n' + mytime.ToLongTimeString();
+                    }
+                    
+
+                }
+                Deliverer_routes.Add(result);
+                using (StreamWriter writer = new StreamWriter(logfile_name + ".csv"))
+                {
+                    using (CsvWriter csvWriter = new CsvWriter(writer, System.Globalization.CultureInfo.CurrentCulture))
+                    {
+                        csvWriter.Configuration.Delimiter = ";";
+                        csvWriter.WriteRecords(output);
+                    }
+                }
+            }
+        }
+        public void LoadOutToFile(string filename)
+        {
+            using (StreamWriter writer = new StreamWriter(filename + ".csv"))
+            {
+                using (CsvWriter csvWriter = new CsvWriter(writer, System.Globalization.CultureInfo.CurrentCulture))
+                {
+                    List<FileLine> output = new List<FileLine>();
+                    foreach(Box box in CarryingNow)
+                    {
+                        string adr = box.adress.adress;
+                        FileLine line = new FileLine();
+                        line.Destination = adr;
+                        line.Packages = box.number;
+                        line.Approach = "Warehouse";
+                        output.Add(line);
+                    }
+                    csvWriter.Configuration.Delimiter = ";";
+                    csvWriter.WriteRecords(output);
+                }
+            }
+            CarryingNow.Clear();
+            volumecarrying = 0;
+        }
+    }
+
+    class FileLine
+    {
+        public string Packages { get; set; }
+        public string Destination { get; set; }
+        public string Approach { get; set; }
     }
 }

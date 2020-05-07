@@ -17,19 +17,11 @@ namespace Novaya_Pochta_.NET
     class Program
     {
         public static Random random = new Random((int)DateTime.Now.Ticks);
-        public static void MainOld()
+        
+        public static void LoadAdresses()
         {
-            GoogleMapProvider.Instance.ApiKey = "AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";
-            //StreamWriter output = new StreamWriter("output");
-            //output.WriteLine("Hello world");
-            //output.Close();
-
-            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-
-            Deliverer Warehouse = new Deliverer(100000, 0, 0, 0);
-            //LandPoint.ReadAndGeocode("PossibleAdresses.txt");
             XmlSerializer formatter = new XmlSerializer(typeof(List<LandPoint>));
-            using (FileStream fs = new FileStream("SomeAdresses.xml", FileMode.Open))
+            using (FileStream fs = new FileStream("Adresses_expanded.xml", FileMode.Open))
             {
                 Deliverer.Adresses.Clear();
                 Deliverer.Adresses = (List<LandPoint>)formatter.Deserialize(fs);
@@ -37,12 +29,34 @@ namespace Novaya_Pochta_.NET
 
                 //Console.WriteLine("Объект сериализован");
             }
+            using (FileStream fs = new FileStream("SomeAdresses.xml", FileMode.Open))
+            {
+                List<LandPoint> old = (List<LandPoint>)formatter.Deserialize(fs);
+                Deliverer.Adresses.AddRange(old);
+            }
+            using (FileStream fs = new FileStream("NovaPochtaAdress.xml", FileMode.Open))
+            {
+                List<LandPoint> old = (List<LandPoint>)formatter.Deserialize(fs);
+                Deliverer.NovaPochta = old.First();
+            }
+        }
+        public static void SetApiKey()
+        {
+            GoogleMapProvider.Instance.ApiKey = "AIzaSyCXpTullgkzPeHlXt3pye1M0NX749xW3Q0";
+        }
+        public static void MainOld()
+        {
+            SetApiKey();
+            LoadAdresses();
+            Deliverer Warehouse = new Deliverer(100000, 0, 0, 0);
+            //LandPoint.ReadAndGeocode("PossibleAdresses.txt");
+            
             Application.SetCompatibleTextRenderingDefault(false);
-            Interface myForm = new Interface();
+            Nova_pochta myForm = new Nova_pochta();
             for (int k = 0; k < 5; k++)
             {
                 List<LandPoint> request = new List<LandPoint>();
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     int randnum = random.Next(Deliverer.Adresses.Count);
                     if (request.Contains(Deliverer.Adresses[randnum]))
@@ -56,47 +70,29 @@ namespace Novaya_Pochta_.NET
 
                 }
                 request.Add(request.First());
-                //request = Mathematics.GetRoute(request);
-                //myForm.Car.Add(Mathematics.GetRoute(request));
+                //request = Mathematics.GetRoute(request).route;
+                myForm.CurrentRoutes.Add(Mathematics.GetRoute(request));
                 //myForm.Car.Add(Mathematics.GetGenetic(request));
             }
 
-            /*int[,] matrix = Mathematics.GetDistanceMatrix(request);
-            StreamWriter output = new StreamWriter("output");
-            for(int i = 0; i < 8; i++)
-            {
-                for(int j = 0; j < 8; j++)
-                {
-                    output.Write("{0, 5}  ", matrix[i, j]);
-                }
-                output.WriteLine();
-            }
-            output.Close();
-            */
-
-
-
+           
 
             Application.EnableVisualStyles();
 
-            //Application.Run(myForm);
+            Application.Run(myForm);
         }
+        [STAThread]
         static void Main(string[] args)
         {
-            MainOld();
-            Deliverer warehouse = new Deliverer(10000, 0, 0, 0);
-            warehouse.RandomFill();
-            Deliverer bike_courier = new Deliverer(100, 100, 300, 0);
-            Deliverer car_courier = new Deliverer(1000, 500, 600, 0);
-            Deliverer lorry_courier = new Deliverer(3000, 2000, 600, 0);
-            bike_courier.TransferWithCap(warehouse, 100, 5);
-            car_courier.TransferWithCap(warehouse, 300, 30);
-            lorry_courier.TransferWithCap(warehouse, 1000, 100);
+            //MainOld();
+            LoadAdresses();
+            SetApiKey();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Nova_pochta myForm = new Nova_pochta();
+            Application.EnableVisualStyles();
 
-            bike_courier.GroupMyBoxes();
-            car_courier.GroupMyBoxes();
-            lorry_courier.GroupMyBoxes();
-            Console.ReadKey();
+            Application.Run(myForm);
+            
         }
     }
 }

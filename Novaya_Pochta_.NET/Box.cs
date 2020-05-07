@@ -10,9 +10,10 @@ namespace Novaya_Pochta_.NET
     public class Box //a box, that we deliver
     {
         private static Random local_random = new Random(0);
-        public double value { get; set; }
+        public int count { get; set; }//how many boxes are there actually
+        public double value { get; set; }// how much it costs
         public double volume { get; set; }//physical characteristic
-        public double mass { get; set; }
+        public double mass { get; set; }//weight of the box
         public string number { get; set; }//difference charasteristic
         public LandPoint adress { get; set; }//code of place, use adress table in Deliverer to decode
 
@@ -24,14 +25,16 @@ namespace Novaya_Pochta_.NET
             mass = mas;
             adress = adr;
             value = CalcValue();
+            count = 1;
         }
-        public Box(double vol, double mas, string num, LandPoint adr, double val)
+        public Box(double vol, double mas, string num, LandPoint adr, double val, int count1)
         {
             volume = vol;
             number = num;
             mass = mas;
             adress = adr;
             value = val;
+            count = count1;
         }
         public static void SwapBoxes(Box A, Box B)//change two boxes
         {
@@ -43,7 +46,7 @@ namespace Novaya_Pochta_.NET
         {
             if (first.adress == second.adress)
             {
-                return new Box(first.volume + second.volume, first.mass + second.mass,first.number + ',' + second.number, first.adress, first.value + second.value);
+                return new Box(first.volume + second.volume, first.mass + second.mass,first.number + ',' + second.number, first.adress, first.value + second.value, first.count + second.count);
             }
             else
             {

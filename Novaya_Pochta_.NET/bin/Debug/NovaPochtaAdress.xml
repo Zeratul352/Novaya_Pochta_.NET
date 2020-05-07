@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ArrayOfLandPoint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LandPoint>
+    <place_id>EkFTbG9ib3poYW5za2EgU3QsIDMyLCBMaXVib3R5biwgS2hhcmtpdnMna2Egb2JsYXN0LCBVa3JhaW5lLCA2MjQzNSIaEhgKFAoSCYFR5IUgmidBEbhxVOefJeVWECA</place_id>
+    <id>0</id>
+    <adress>Slobozhanska St, 32, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9477442</Lat>
+      <Lng>35.9309861</Lng>
+    </coordinates>
+  </LandPoint>
+</ArrayOfLandPoint>
