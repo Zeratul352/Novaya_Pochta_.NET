@@ -217,6 +217,11 @@ namespace Novaya_Pochta_.NET
             volumecarrying -= took.volume;
             return took;
         }
+        public Box TakeBox(Box item)
+        {
+            CarryingNow.Remove(item);
+            return item;
+        }
         public void VolumeSort()
         {
             int num = CarryingNow.Capacity;
@@ -262,13 +267,19 @@ namespace Novaya_Pochta_.NET
         private List<Box> FillBack()
         {
             double volume = 0;
+            for(int i = 0; i < CarryingNow.Count; i++)//random shuffle
+            {
+                Box temp = CarryingNow[i];
+                CarryingNow.RemoveAt(i);
+                CarryingNow.Insert(Program.random.Next(CarryingNow.Count), temp);
+            }
             List<Box> package = new List<Box>();
             for(int i = CarryingNow.Count - 1; i >= 0; i--)
             {
                 if(volume + CarryingNow[i].volume <= capacity && package.Count <= 18)
                 {
                     volume += CarryingNow[i].volume;
-                    package.Add(TakeBox(i));
+                    package.Add(CarryingNow[i]);
                 }
             }
             return package;
@@ -288,6 +299,158 @@ namespace Novaya_Pochta_.NET
                 }
             }
             return package;
+        }
+
+        private List<Box> GeneticFill()
+        {
+            var test = FillBack();
+            if(Box.SumVolume(CarryingNow) < capacity)
+            {
+                return FillFront();
+            }
+            var rand = Program.random;
+            int cases = 500;
+            int generations = 50;
+            int deadline = 0;
+            int startvalue = Box.Sum(FillBack());
+            List<List<Box>> RandomBoxes = new List<List<Box>>();
+            for(int i = 0; i < cases; i++)
+            {
+                RandomBoxes.Add(FillBack());
+            }
+
+            List<List<Box>> Generation = new List<List<Box>>(RandomBoxes);
+            var BestFill = new List<Box>(RandomBoxes.First());
+            List<int> FillLog = new List<int>();
+            for(int generation = 0; generation < generations; generation++)
+            {
+                for(int i = 0; i < cases; i++)//tournament selection
+                {
+                    int first = rand.Next(cases);
+                    int second = rand.Next(cases);
+                    if(Box.Sum(RandomBoxes[first]) < Box.Sum(RandomBoxes[second]))
+                    {
+                        Generation[i] = new List<Box>(RandomBoxes[first]);
+                    }
+                    else
+                    {
+                        Generation[i] = new List<Box>(RandomBoxes[second]);
+                    }
+                }
+                
+                for (int i = 0; i < cases; i += 2)
+                {
+                    int first = rand.Next(cases);
+                    int second = rand.Next(cases);
+                    var firstchild = new List<Box>();
+                    var secondchild = new List<Box>();
+                    int minlen;
+                    if (Generation[first].Count < Generation[second].Count)
+                    {
+                        minlen = Generation[first].Count;
+                    }
+                    else
+                    {
+                        minlen = Generation[second].Count;
+                    }
+                    int devider = rand.Next(1, minlen - 1);
+                    for (int pos = 0; pos < devider; pos++)
+                    {
+                        firstchild.Add(Generation[first][pos]);
+                        secondchild.Add(Generation[second][pos]);
+                    }
+                    List<Box> pool = new List<Box>();//creating pool of resting elements
+                    
+                    for (int pos = devider; pos < Generation[first].Count; pos++)
+                    {
+                        pool.Add(Generation[first][pos]);
+                    }
+                    for (int pos = devider; pos < Generation[second].Count; pos++)
+                    {
+                        pool.Add(Generation[second][pos]);
+                    }
+                    for(int k = 0; k < pool.Count; k++)
+                    {
+                        var temp = pool[k];
+                        pool.RemoveAt(k);
+                        pool.Insert(rand.Next(pool.Count), temp);
+                    }
+                    while (pool.Count != 0)//some strange logic in insertion, but have to work
+                    {
+                        var temp = pool.First();
+                        pool.Remove(temp);
+                        if (firstchild.Contains(temp)|| firstchild.Count > 18)
+                        {
+                            if (secondchild.Contains(temp) || secondchild.Count > 18)
+                            {
+                                continue;
+                            }else if(Box.SumVolume(secondchild) + temp.volume <= capacity)
+                            {
+                                secondchild.Add(temp);
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else if(Box.SumVolume(firstchild) + temp.volume > capacity)
+                        {
+                            if (secondchild.Contains(temp) || secondchild.Count > 18)
+                            {
+                                continue;
+                            }
+                            else if (Box.SumVolume(secondchild) + temp.volume <= capacity)
+                            {
+                                secondchild.Add(temp);
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            firstchild.Add(temp);
+                        }
+
+                    }
+                    RandomBoxes[i] = firstchild;
+                    RandomBoxes[i + 1] = secondchild;
+
+                }
+                int index = -1;
+                int BestValue = Box.Sum(BestFill);
+                for(int i = 0; i < cases; i++)
+                {
+                    if(Box.Sum(RandomBoxes[i]) < BestValue)
+                    {
+                        index = i;
+                        BestValue = Box.Sum(RandomBoxes[i]);
+                    }
+                }
+                if(index == -1)
+                {
+                    deadline++;
+                }
+                else
+                {
+                    BestFill = new List<Box>(RandomBoxes[index]);
+                    FillLog.Add(BestValue);
+                    deadline = 0;
+                }
+                if(deadline == 3)
+                {
+                    break;
+                }
+
+            }
+            List<Box> result = new List<Box>();
+            foreach(var box in BestFill)
+            {
+                result.Add(TakeBox(box));
+            }
+            int endvalue = Box.Sum(result);
+            return result;
         }
         public void RandomFill()
         {
@@ -371,7 +534,7 @@ namespace Novaya_Pochta_.NET
             while(CarryingNow.Count != 0)
             {
                 //FileLine fileLine = new FileLine();
-                List<Box> load = FillFront();
+                List<Box> load = GeneticFill();
                 if(load.Count == 0)
                 {
                     throw new Exception("Logical error in the algorythm happened: there are boxes that courier can't handle");
@@ -432,7 +595,8 @@ namespace Novaya_Pochta_.NET
 
                 }
                 Deliverer_routes.Add(result);
-                using (StreamWriter writer = new StreamWriter(logfile_name + ".csv"))
+                
+                using (StreamWriter writer = new StreamWriter(logfile_name + "_" + DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString() + ".csv"))
                 {
                     using (CsvWriter csvWriter = new CsvWriter(writer, System.Globalization.CultureInfo.CurrentCulture))
                     {

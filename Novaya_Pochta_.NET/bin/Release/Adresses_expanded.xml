@@ -1,0 +1,408 @@
+﻿<?xml version="1.0"?>
+<ArrayOfLandPoint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LandPoint>
+    <place_id>ChIJWSGV-SCaJ0ERYoBnf4A85HA</place_id>
+    <id>0</id>
+    <adress>Slobozhanska St, 28, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9468827</Lat>
+      <Lng>35.9296615</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJuaixO4uZJ0ER4KATTAaNJPE</place_id>
+    <id>2</id>
+    <adress>Vulytsya 8 Bereznya, 10, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9519388</Lat>
+      <Lng>35.9329267</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJM_fS7fSZJ0ER8OUEq9tgjzc</place_id>
+    <id>3</id>
+    <adress>Vulytsya 8 Bereznya, 24, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9533278</Lat>
+      <Lng>35.9294992</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJW2LGUI2ZJ0ER5C_Y8o6BNU4</place_id>
+    <id>7</id>
+    <adress>Provulok Luhovyy, 12, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9569487</Lat>
+      <Lng>35.9396999</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJVeJofR6aJ0ERKENpZAZXY2M</place_id>
+    <id>10</id>
+    <adress>Vulytsya Nekrasova, 23, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9501402</Lat>
+      <Lng>35.9189021</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ2WBAxBiaJ0ERW0BivpQb490</place_id>
+    <id>12</id>
+    <adress>Vulytsya Veterynarna, 30, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9460928</Lat>
+      <Lng>35.9190346</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJnVu5fQ-aJ0ER8qcE9KOrr9c</place_id>
+    <id>17</id>
+    <adress>Vulytsya Vesnyana, 12, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9484949</Lat>
+      <Lng>35.8982769</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJYcU9GQaaJ0ERirf-nsdwM04</place_id>
+    <id>18</id>
+    <adress>Vulytsya Khersonsʹka, 3, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9506955</Lat>
+      <Lng>35.8944561</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJmST21wiaJ0ER2VIN4lQa7pA</place_id>
+    <id>21</id>
+    <adress>Vulytsya Lʹva Tolstoho, 24, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9480521</Lat>
+      <Lng>35.8917742</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJNwhlTwmaJ0ER4-aOEORI5Xs</place_id>
+    <id>22</id>
+    <adress>Vulytsya Zmahannya, 56, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9467067</Lat>
+      <Lng>35.8898625</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ8-Ucdg6aJ0ERmcRo_S-ZYVA</place_id>
+    <id>25</id>
+    <adress>Vulytsya Puhachova, 56, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9440658</Lat>
+      <Lng>35.8945723</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJBdKDHnOaJ0ERyDo-69MW1pk</place_id>
+    <id>29</id>
+    <adress>Provulok Karavansʹkyy, 26, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9395373</Lat>
+      <Lng>35.8856133</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJn-DXORKaJ0ERz_DvQlvNRrQ</place_id>
+    <id>32</id>
+    <adress>Vulytsya Karavansʹka, 74, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9414823</Lat>
+      <Lng>35.8982823</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJze0w8ROaJ0ERodYgi5t0T38</place_id>
+    <id>36</id>
+    <adress>Vulytsya Odesʹka, 9, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9402548</Lat>
+      <Lng>35.9024719</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJpbdjkBWaJ0ERy6E8Y0KdgQI</place_id>
+    <id>39</id>
+    <adress>Vulytsya Kryva, 22, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9371833</Lat>
+      <Lng>35.9078228</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJwSFvjxWaJ0ER5Rc9eWYdeCc</place_id>
+    <id>40</id>
+    <adress>Vulytsya Kryva, 20, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9370003</Lat>
+      <Lng>35.9083183</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ7QvmxT-aJ0ERSzbIWePhR7Y</place_id>
+    <id>43</id>
+    <adress>Vulytsya Lassalya, 6, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.935288</Lat>
+      <Lng>35.9086411</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJiyDUEkCaJ0ER348zAbnLfgk</place_id>
+    <id>45</id>
+    <adress>Vulytsya Lassalya, 29, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9331291</Lat>
+      <Lng>35.9061755</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ-XtY6UGaJ0ERzkcjfzaJhqM</place_id>
+    <id>46</id>
+    <adress>Vulytsya Krynychna, 8, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9307711</Lat>
+      <Lng>35.902075</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJQYIXAj2aJ0ERAWTuBHwOrv4</place_id>
+    <id>53</id>
+    <adress>Prov. Kovalʹsʹkyy, 13, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9391764</Lat>
+      <Lng>35.9176544</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ69jQjiSaJ0ERdkuyHIRkf-w</place_id>
+    <id>55</id>
+    <adress>Vulytsya Shevchenka, 104, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.940796</Lat>
+      <Lng>35.9273104</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJVxwQai-aJ0ER9wDZM32rcYY</place_id>
+    <id>57</id>
+    <adress>Vulytsya Havenka, 9, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9393807</Lat>
+      <Lng>35.936392</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJr_YzvyiaJ0ERfAOOXLE_Yfc</place_id>
+    <id>58</id>
+    <adress>Sviato-Mykolaivska St, 12, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9410248</Lat>
+      <Lng>35.9391816</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJP83g-CuaJ0ERGuBQ9oyuGhs</place_id>
+    <id>61</id>
+    <adress>ул. Фисака, 23, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9382504</Lat>
+      <Lng>35.9442595</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJY6TNIiyaJ0ERfFe93JBBkHs</place_id>
+    <id>62</id>
+    <adress>Provulok Fisaka, 10, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9369859</Lat>
+      <Lng>35.942864</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ7QyySCyaJ0ERn8rpogU1HPM</place_id>
+    <id>63</id>
+    <adress>Academician Amosov St, 6, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9360863</Lat>
+      <Lng>35.943555</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ9QIfsS2aJ0ER1IWfDqyoB1U</place_id>
+    <id>64</id>
+    <adress>Academician Amosov St, 45, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9352312</Lat>
+      <Lng>35.9425176</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJVTBOuC2aJ0ER5H7cmkvVCC8</place_id>
+    <id>65</id>
+    <adress>Vulytsya Havenka, 30, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9351505</Lat>
+      <Lng>35.9418138</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJE9_9FS2aJ0ER12rC3s8y2b4</place_id>
+    <id>66</id>
+    <adress>Vulytsya Hryzodubova, 5, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9338058</Lat>
+      <Lng>35.9449069</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJUbX8pjKaJ0ERy-qnd3gwFKc</place_id>
+    <id>69</id>
+    <adress>Vulytsya Haydara, 35, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.932246</Lat>
+      <Lng>35.9435811</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJKzFW_i2aJ0ERtDn_Uv10FyA</place_id>
+    <id>72</id>
+    <adress>Provulok Oranzhereynyy, 13, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9345532</Lat>
+      <Lng>35.9382897</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJUQajftGbJ0ER4EJ4B20mfXk</place_id>
+    <id>74</id>
+    <adress>Vulytsya Komyshuvata, 54, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9314599</Lat>
+      <Lng>35.955511</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJYRX9adWbJ0ER8mhbArWGgRA</place_id>
+    <id>78</id>
+    <adress>Vulytsya Dunayevsʹkoho, 17, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9383455</Lat>
+      <Lng>35.9570386</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJi9Zj-3-ZJ0ERGhO-SEIEDBk</place_id>
+    <id>79</id>
+    <adress>Provulok Udarnyy, 18, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9397638</Lat>
+      <Lng>35.9575056</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJjYxbx4GZJ0ERjexCYfHdEWM</place_id>
+    <id>82</id>
+    <adress>Vulytsya Pershotravneva, 3, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9429025</Lat>
+      <Lng>35.9583968</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJVQ5_HYKZJ0ERT4scib4LSJ0</place_id>
+    <id>85</id>
+    <adress>Vulytsya Partyzansʹka, 50, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9439329</Lat>
+      <Lng>35.9608869</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJbw83ZHeZJ0ERNfLMtVLdkys</place_id>
+    <id>88</id>
+    <adress>Vulytsya Kolodyazhna, 6, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9460214</Lat>
+      <Lng>35.9729127</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJeX2U652ZJ0ERUg-h2Bo0grM</place_id>
+    <id>90</id>
+    <adress>Vulytsya Selyshchna, 15, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9509582</Lat>
+      <Lng>35.9707543</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJhfX9bpuZJ0ERkPrZaXTU0g8</place_id>
+    <id>95</id>
+    <adress>Vulytsya Pershotravneva, 40, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9516182</Lat>
+      <Lng>35.9613986</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJ_ycw4ZyZJ0ERqsW1uFh4xSM</place_id>
+    <id>98</id>
+    <adress>Veselkova St, 42, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9499089</Lat>
+      <Lng>35.9653589</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJQ_ueBYOZJ0ERWqqyOnngIV4</place_id>
+    <id>101</id>
+    <adress>Sanzharivska St, 41, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9473584</Lat>
+      <Lng>35.9610031</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJj9as84aZJ0ER-OzLGU9OT4k</place_id>
+    <id>104</id>
+    <adress>Lesia Kurbasa St, 25, Liubotyn, Kharkivs'ka oblast, Ukraine, 62435</adress>
+    <coordinates>
+      <Lat>49.9459795</Lat>
+      <Lng>35.9503936</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJPxFhJI-ZJ0ERxO_o5nRSdRA</place_id>
+    <id>107</id>
+    <adress>Vulytsya Proselyshchna, 15, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9502914</Lat>
+      <Lng>35.9459255</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJzVdfl42ZJ0ERIvsZT83uzj0</place_id>
+    <id>112</id>
+    <adress>Vulytsya Shkilʹna, 143, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9551463</Lat>
+      <Lng>35.9426472</Lng>
+    </coordinates>
+  </LandPoint>
+  <LandPoint>
+    <place_id>ChIJx_rKe5KZJ0ERla6XkSwi-9U</place_id>
+    <id>113</id>
+    <adress>Slobozhanska St, 138, Liubotyn, Kharkivs'ka oblast, Ukraine, 62434</adress>
+    <coordinates>
+      <Lat>49.9562947</Lat>
+      <Lng>35.9439835</Lng>
+    </coordinates>
+  </LandPoint>
+</ArrayOfLandPoint>

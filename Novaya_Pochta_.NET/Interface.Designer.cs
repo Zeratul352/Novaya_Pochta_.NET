@@ -135,7 +135,7 @@
             this.NextCurier.Name = "NextCurier";
             this.NextCurier.Size = new System.Drawing.Size(157, 117);
             this.NextCurier.TabIndex = 5;
-            this.NextCurier.Text = "Next curier";
+            this.NextCurier.Text = "Next courier";
             this.NextCurier.UseVisualStyleBackColor = false;
             this.NextCurier.Click += new System.EventHandler(this.NextCurier_Click);
             // 

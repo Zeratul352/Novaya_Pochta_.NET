@@ -126,6 +126,10 @@ namespace Novaya_Pochta_.NET
             {
                 StepOverlay.Clear();
                 CurrentSteps.Clear();
+                if(allroutescounter != 0)
+                {
+                    curier_text.Text = AllRoutes[allroutescounter - 1].Item2;
+                }
                 stepcounter = 0;
                 routecounter = 0;
                 return;
@@ -133,6 +137,7 @@ namespace Novaya_Pochta_.NET
             StepOverlay.Clear();
             CurrentSteps.Clear();
             stepcounter = 0;
+            curier_text.Text = AllRoutes[allroutescounter - 1].Item2 + ": route  " + (routecounter + 1).ToString();
             for(int i = 0; i < CurrentRoutes[routecounter].route.Count - 1; i++)
             {
                 List<LandPoint> temp = new List<LandPoint>();
@@ -217,7 +222,7 @@ namespace Novaya_Pochta_.NET
             Deliverer bike_courier = new Deliverer(50, 100, 5, 0);//adding couriers
             Deliverer car_courier = new Deliverer(500, 500, 12, 0);
             Deliverer lorry_courier = new Deliverer(1500, 2000, 15, 0);
-            bike_courier.TransferWithCap(warehouse, 30, 5);//transfering them all packages they can carry
+            bike_courier.TransferWithCap(warehouse, 30, 150);//transfering them all packages they can carry
             car_courier.TransferWithCap(warehouse, 250, 30);
             lorry_courier.TransferWithCap(warehouse, 1000, 300);
             StatusLabel.Text = "Data loaded succesfuly";//showing that initiation is done
@@ -225,19 +230,19 @@ namespace Novaya_Pochta_.NET
             progressStrip.ProgressBar.Value = 10;
 
             bike_courier.GroupMyBoxes();
-            bike_courier.BuildRoutesAsync("Bike");//building routes for bike
+            bike_courier.BuildRoutes("Bike");//building routes for bike
 
             StatusLabel.Text = "Calculations finished for bike curier";
             progressStrip.ProgressBar.Value = 40;
 
             car_courier.GroupMyBoxes();
-            car_courier.BuildRoutesAsync("Car");//building routes for car
+            car_courier.BuildRoutes("Car");//building routes for car
             StatusLabel.Text = "Calculations finished for car curier";
             progressStrip.ProgressBar.Value = 70;
 
 
             lorry_courier.GroupMyBoxes();
-            lorry_courier.BuildRoutesAsync("Lorry");//building routes for lorry
+            lorry_courier.BuildRoutes("Lorry");//building routes for lorry
             System.Threading.Thread.Sleep(4000);
             StatusLabel.Text = "Calculations finished for lorry curier";
             progressStrip.ProgressBar.Value = 100;

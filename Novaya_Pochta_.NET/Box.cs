@@ -24,7 +24,7 @@ namespace Novaya_Pochta_.NET
             number = num;
             mass = mas;
             adress = adr;
-            value = CalcValue();
+            value = CalcValue() * -1;
             count = 1;
         }
         public Box(double vol, double mas, string num, LandPoint adr, double val, int count1)
@@ -83,6 +83,24 @@ namespace Novaya_Pochta_.NET
                 int extra = System.Convert.ToInt32(Math.Ceiling(mass - 30));
                 return 100 + extra * 2 + deliver_type * (5 + extra * 3);
             }
+        }
+        public static int Sum(List<Box> boxes)
+        {
+            double sum = 0;
+            foreach(Box box in boxes)
+            {
+                sum += box.value;
+            }
+            return System.Convert.ToInt32(sum);
+        }
+        public static double SumVolume(List<Box> boxes)
+        {
+            double sum = 0;
+            foreach (Box box in boxes)
+            {
+                sum += box.volume;
+            }
+            return sum;
         }
     }
 }
